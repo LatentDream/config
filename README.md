@@ -23,17 +23,17 @@ Clone kickstart.nvim:
 
 - on Linux and Mac
 ```sh
-git clone https://github.com/LatenDream/nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
+git clone https://github.com/LatentDream/nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
 ```
 
 - on Windows (cmd)
 ```
-git clone https://github.com/LatenDream/nvim.git %userprofile%\AppData\Local\nvim\ 
+git clone https://github.com/LatentDream/nvim.git %userprofile%\AppData\Local\nvim\ 
 ```
 
 - on Windows (powershell)
 ```
-git clone https://github.com/LatenDream/nvim.git $env:USERPROFILE\AppData\Local\nvim\ 
+git clone https://github.com/LatentDream/nvim.git $env:USERPROFILE\AppData\Local\nvim\ 
 ```
 
 
