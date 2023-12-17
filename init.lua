@@ -225,7 +225,7 @@ require('lazy').setup({
 }, {})
 
 require "custom.plugins.toggleterm"
-
+require "custom.plugins.copilot"
 
 -- [[ Setting options ]]
 -- See `:help vim.o`
