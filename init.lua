@@ -222,6 +222,9 @@ require('lazy').setup({
   {
     'akinsho/toggleterm.nvim'
   },
+  {
+    'xiyaowong/transparent.nvim'
+  }
 }, {})
 
 require "custom.plugins.toggleterm"
