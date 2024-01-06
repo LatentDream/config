@@ -148,16 +148,11 @@ require('lazy').setup({
       end,
     },
   },
-
   {
-    -- Theme inspired by Atom
-    'navarasu/onedark.nvim',
+    "ellisonleao/gruvbox.nvim",
     priority = 1000,
-    config = function()
-      vim.cmd.colorscheme 'onedark'
-    end,
+    config = true,
   },
-
   {
     -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
@@ -165,7 +160,7 @@ require('lazy').setup({
     opts = {
       options = {
         icons_enabled = false,
-        theme = 'onedark',
+        theme = 'gruvbox',
         component_separators = '|',
         section_separators = '',
       },
@@ -229,7 +224,7 @@ require('lazy').setup({
 
 require "custom.plugins.toggleterm"
 require "custom.plugins.copilot"
-require "custom.plugins.onedark"
+require "custom.plugins.colorscheme"
 
 -- [[ Setting options ]]
 -- See `:help vim.o`
