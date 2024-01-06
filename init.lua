@@ -219,6 +219,9 @@ require('lazy').setup({
   },
   {
     'xiyaowong/transparent.nvim'
+  },
+  {
+    "karloskar/poetry-nvim"
   }
 }, {})
 
