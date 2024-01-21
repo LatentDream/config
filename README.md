@@ -8,6 +8,7 @@ cargo install ripgrep
 ```Bash
 cargo install just
 ```
+- Lazy git: [lazygit](https://github.com/jesseduffield/lazygit?tab=readme-ov-file#homebrew)
 - Markdown reader: [Glow](https://github.com/charmbracelet/glow)
 
 ## Lazy vim quick tips
