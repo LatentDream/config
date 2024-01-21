@@ -18,7 +18,6 @@ return {
         build = ':TSUpdate',
     },
 
-
     -- Fuzzy Finder (files, lsp, etc)
     {
         'nvim-telescope/telescope.nvim',
@@ -38,7 +37,6 @@ return {
                 end,
             },
         },
-      },
-
+    },
 
 }
