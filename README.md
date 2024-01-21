@@ -13,3 +13,4 @@
 - File tree
 - List all dependecies
 
+- Could be a nice touch: https://github.com/L3MON4D3/LuaSnip
