@@ -1,8 +1,6 @@
 require("gruvbox").setup({
     palette_overrides = {
-        bright_green = "#FFD400",
-        neutral_green = "#FFD400",
-        faded_green = "#FFD400",
+        bright_green = "#ebdbb2",
     }
 })
 vim.cmd("colorscheme gruvbox")
