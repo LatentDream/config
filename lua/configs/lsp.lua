@@ -108,3 +108,17 @@ mason_lspconfig.setup_handlers {
     }
   end,
 }
+
+require'lspconfig'.pylsp.setup{
+   settings = {
+     pylsp = {
+       plugins = {
+         pycodestyle = {
+           ignore = {'E501', 'W391', 'W293'},
+           maxLineLength = 120
+         }
+       }
+     }
+   }
+}
+
