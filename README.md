@@ -13,6 +13,4 @@ cargo install just
 
 ## Todo
 - Could be a nice touch: https://github.com/L3MON4D3/LuaSnip
-- Search Label: https://github.com/folke/flash.nvim
 - For the meme: https://github.com/andweeb/presence.nvim
-- Illuminate other word: https://github.com/RRethy/vim-illuminate

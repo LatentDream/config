@@ -1,4 +1,5 @@
 return {
+    -- Better version of the '/' & '?' find.
     {
       "folke/flash.nvim",
       event = "VeryLazy",
@@ -12,6 +13,8 @@ return {
         { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
         { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
       },
-    }
+    },
 
+    -- Auto highlight other use of the word.
+    { "RRethy/vim-illuminate" }
 }
