@@ -1,4 +1,39 @@
--- [[ Configure nvim-cmp ]]
+-- [[ Configure nvim-cmp ]]-- lspkind.lua
+
+local lspkind = require("lspkind")
+lspkind.init({
+  mode = 'symbol_text',
+  symbol_map = {
+    Text = "󰉿",
+    Method = "󰆧",
+    Function = "󰊕",
+    Constructor = "",
+    Field = "󰜢",
+    Variable = "󰀫",
+    Class = "󰠱",
+    Interface = "",
+    Module = "",
+    Property = "󰜢",
+    Unit = "󰑭",
+    Value = "󰎠",
+    Enum = "",
+    Keyword = "󰌋",
+    Snippet = "",
+    Color = "󰏘",
+    File = "󰈙",
+    Reference = "󰈇",
+    Folder = "󰉋",
+    EnumMember = "",
+    Constant = "󰏿",
+    Struct = "󰙅",
+    Event = "",
+    Operator = "󰆕",
+    TypeParameter = "",
+    Copilot = "",
+  },
+})
+
+vim.api.nvim_set_hl(0, "CmpItemKindCopilot", {fg ="#6CC644"})
 -- See `:help cmp`
 local cmp = require 'cmp'
 local luasnip = require 'luasnip'
@@ -24,7 +59,7 @@ cmp.setup {
       behavior = cmp.ConfirmBehavior.Replace,
       select = false,
     },
-    ['<S-Tab>'] = cmp.mapping(function(fallback)
+    ['<Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
       elseif luasnip.expand_or_locally_jumpable() then
@@ -33,15 +68,15 @@ cmp.setup {
         fallback()
       end
     end, { 'i', 's' }),
-    -- ['<S-Tab>'] = cmp.mapping(function(fallback)
-    --   if cmp.visible() then
-    --     cmp.select_prev_item()
-    --   elseif luasnip.locally_jumpable(-1) then
-    --     luasnip.jump(-1)
-    --   else
-    --     fallback()
-    --   end
-    -- end, { 'i', 's' }),
+    ['<S-Tab>'] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_prev_item()
+      elseif luasnip.locally_jumpable(-1) then
+        luasnip.jump(-1)
+      else
+        fallback()
+      end
+    end, { 'i', 's' }),
   },
   sources = {
     -- Copilot Source
@@ -51,22 +86,12 @@ cmp.setup {
     { name = 'luasnip' },
     { name = 'path' },
   },
+  formatting = {
+    format = lspkind.cmp_format({
+      mode = 'symbol', -- show only symbol annotations
+      maxwidth = 50
+    })
+  }
 }
 
--- lspkind.lua
-local lspkind = require("lspkind")
-lspkind.init({
-  symbol_map = {
-    Copilot = "",
-  },
-})
 
-vim.api.nvim_set_hl(0, "CmpItemKindCopilot", {fg ="#6CC644"})
-
--- Copilote Toggle | Not really tested
-function ToggleCopilotAutoTrigger()
-  require("copilot.suggestion").toggle_auto_trigger()
-end
-
--- Map <Leader>tc to the toggle function
-vim.api.nvim_set_keymap('n', '<Leader>tc', ':lua ToggleCopilotAutoTrigger()<CR>', { noremap = true, silent = true })

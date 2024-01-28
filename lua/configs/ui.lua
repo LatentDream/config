@@ -17,20 +17,36 @@ require("neo-tree").setup({
     },
 })
 
-
--- WIP - Lualine
--- require('lualine').setup {
---   sections = {
---     lualine_a = {'mode'},
---     lualine_b = {'branch', 'diff', 'diagnostics'},
---     lualine_c = {'filename'},
---     lualine_x = {
---       {
---         require("copilot.suggestion").is_visible() and '🚀 Copilot' or ''
---       },
---       'encoding', 'fileformat', 'filetype'},
---     lualine_y = {'progress'},
---     lualine_z = {'location'}
---   },
--- }
---
+require("lualine").setup({
+    options = {
+        icons_enabled = true,
+        component_separators = { left = '', right = '' },
+        section_separators = { left = '', right = '' },
+        disabled_filetypes = {},
+        always_divide_middle = true
+    },
+    sections = {
+        lualine_a = { 'mode' },
+        lualine_b = { 'branch', 'diff',
+            {
+                'diagnostics',
+                sources = { "nvim_diagnostic" },
+                symbols = { error = ' ', warn = ' ', info = ' ', hint = ' ' }
+            }
+        },
+        lualine_c = { 'filename' },
+        lualine_x = { 'copilot' ,'encoding', 'fileformat', 'filetype' }, -- I added copilot here
+        lualine_y = { 'progress' },
+        lualine_z = { 'location' }
+    },
+    inactive_sections = {
+        lualine_a = {},
+        lualine_b = {},
+        lualine_c = { 'filename' },
+        lualine_x = { 'location' },
+        lualine_y = {},
+        lualine_z = {}
+    },
+    tabline = {},
+    extensions = {}
+})

@@ -72,7 +72,7 @@ local servers = {
   -- gopls = {},
   pyright = {},
   rust_analyzer = {},
-  tsserver = {},
+  -- tsserver = {},
   -- html = { filetypes = { 'html', 'twig', 'hbs'} },
 
   lua_ls = {
@@ -114,7 +114,7 @@ require'lspconfig'.pylsp.setup{
      pylsp = {
        plugins = {
          pycodestyle = {
-           ignore = {'E501', 'W391', 'W293'},
+           ignore = {'E501', 'W391', 'W293', 'E241'},
            maxLineLength = 120
          }
        }

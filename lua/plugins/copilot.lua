@@ -12,6 +12,8 @@ return {
       },
     },
   },
+  -- Lua Line 
+  { 'AndreM222/copilot-lualine' },
   -- Turn github copilot into a cmp source
   {
     "onsails/lspkind.nvim"
