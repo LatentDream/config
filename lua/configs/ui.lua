@@ -9,7 +9,7 @@ vim.cmd("colorscheme gruvbox")
 require("neo-tree").setup({
     window = {
           position = "left",
-          width = 25,
+          width = 50,
           mapping_options = {
             noremap = true,
             nowait = true,
