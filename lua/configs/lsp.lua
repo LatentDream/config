@@ -38,16 +38,23 @@ local on_attach = function(_, bufnr)
   end, { desc = 'Format current buffer with LSP' })
 end
 
+vim.api.nvim_set_keymap('n', '<leader>ff', ':Format<CR>', { noremap = true, silent = true })
+
+
 -- document existing key chains
 require('which-key').register {
   ['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
   ['<leader>d'] = { name = '[D]ocument', _ = 'which_key_ignore' },
-  ['<leader>g'] = { name = '[G]oto || [G]it', _ = 'which_key_ignore' },
+  ['<leader>g'] = { name = '[G]it', _ = 'which_key_ignore' },
   ['<leader>h'] = { name = 'Git [H]unk', _ = 'which_key_ignore' },
   ['<leader>r'] = { name = '[R]ename', _ = 'which_key_ignore' },
   ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
   ['<leader>t'] = { name = '[T]oggle', _ = 'which_key_ignore' },
   ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
+  ['<leader>b'] = { name = '[B]uffer', _ = 'which_key_ignore' },
+  ['<leader>i'] = { name = '[I]nsert', _ = 'which_key_ignore' },
+  ['<leader>x'] = { name = '[X]Error', _ = 'which_key_ignore' },
+  ['<leader>f'] = { name = '[F]ile', _ = 'which_key_ignore' },
 }
 -- register which-key VISUAL mode
 -- required for visual <leader>hs (hunk stage) to work
@@ -109,17 +116,17 @@ mason_lspconfig.setup_handlers {
   end,
 }
 
-require'lspconfig'.pylsp.setup{
-   settings = {
-     pylsp = {
-       plugins = {
-         pycodestyle = {
-           ignore = {'E501', 'W391', 'W293', 'E241'},
-           maxLineLength = 120
-         }
-       }
-     }
-   }
+require 'lspconfig'.pylsp.setup {
+  settings = {
+    pylsp = {
+      plugins = {
+        pycodestyle = {
+          ignore = { 'E501', 'W391', 'W293', 'E241' },
+          maxLineLength = 120
+        }
+      }
+    }
+  }
 }
 
 -- Clangd: Fix encoding problem
@@ -129,21 +136,21 @@ local clangd_capabilities = cmp_capabilities
 clangd_capabilities.textDocument.semanticHighlighting = true
 clangd_capabilities.offsetEncoding = "utf-8"
 
-lspconfig.clangd.setup{
-    capabilities = clangd_capabilities,
-    cmd = {
-    	"clangd",
-    	"--background-index",
-    	"--pch-storage=memory",
-    	"--clang-tidy",
-    	"--suggest-missing-includes",
-    	"--cross-file-rename",
-    	"--completion-style=detailed",
-    },
-    init_options = {
-    	clangdFileStatus = true,
-    	usePlaceholders = true,
-    	completeUnimported = true,
-    	semanticHighlighting = true,
-    }
+lspconfig.clangd.setup {
+  capabilities = clangd_capabilities,
+  cmd = {
+    "clangd",
+    "--background-index",
+    "--pch-storage=memory",
+    "--clang-tidy",
+    "--suggest-missing-includes",
+    "--cross-file-rename",
+    "--completion-style=detailed",
+  },
+  init_options = {
+    clangdFileStatus = true,
+    usePlaceholders = true,
+    completeUnimported = true,
+    semanticHighlighting = true,
+  }
 }
