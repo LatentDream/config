@@ -5,6 +5,21 @@ require("gruvbox").setup({
 })
 vim.cmd("colorscheme gruvbox")
 
+current_theme = 1
+
+function toggle_theme()
+    current_theme = 3 - current_theme
+    if current_theme == 1 then
+        require("gruvbox").setup()
+        vim.cmd("colorscheme gruvbox")
+    elseif current_theme == 2 then
+        require("gruber-darker").setup()
+        vim.cmd("colorscheme gruber-darker")
+    end
+end
+
+vim.api.nvim_set_keymap('n', '<leader>ts', ':lua toggle_theme()<CR>', { noremap = true, silent = true })
+
 
 require("neo-tree").setup({
     window = {

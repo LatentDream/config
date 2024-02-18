@@ -6,5 +6,6 @@ return   {
     config = function()
       vim.cmd.colorscheme("gruvbox")
     end,
-  }
+  },
+  { "thimc/gruber-darker.nvim" },
 }
