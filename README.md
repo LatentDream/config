@@ -6,6 +6,8 @@ cargo install just
 cargo install zoxide --locked
 cargo install bat --locked
 cargo install just
+cargo install eza
+brew / cargo install silicon
 ```
 - Lazy git: [lazygit](https://github.com/jesseduffield/lazygit?tab=readme-ov-file#homebrew)
 - Markdown reader: [Glow](https://github.com/charmbracelet/glow)

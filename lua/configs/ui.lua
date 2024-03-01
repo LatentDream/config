@@ -24,7 +24,7 @@ vim.api.nvim_set_keymap('n', '<leader>ts', ':lua toggle_theme()<CR>', { noremap 
 require("neo-tree").setup({
     window = {
           position = "left",
-          width = 50,
+          width = 40,
           mapping_options = {
             noremap = true,
             nowait = true,
