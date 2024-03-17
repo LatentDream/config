@@ -14,4 +14,3 @@ brew / cargo install silicon
 - MacOS window [manager](https://rectangleapp.com/): `brew install rectangle`
 ## Todo
 - Could be a nice touch: https://github.com/L3MON4D3/LuaSnip
-- For the meme: https://github.com/andweeb/presence.nvim
