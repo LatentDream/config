@@ -64,7 +64,16 @@ function _LAZYGIT_TOGGLE()
 	lazygit:toggle()
 end
 
+local spotify = Terminal:new({ cmd = "spt", hidden = true })
+
+function _SPOTIFY_TOGGLE()
+	spotify:toggle()
+end
+
+
 vim.api.nvim_set_keymap("n", "<leader>tg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", {noremap = true, silent = true})
 vim.api.nvim_set_keymap("n", "<leader>tp", "<cmd>lua _PYTHON_TOGGLE()<CR>", {noremap = true, silent = true})
 vim.api.nvim_set_keymap("n", "<leader>th", "<cmd>lua _HTOP_TOGGLE()<CR>", {noremap = true, silent = true})
 vim.api.nvim_set_keymap("n", "<leader>tn", "<cmd>lua _NODE_TOGGLE()<CR>", {noremap = true, silent = true})
+vim.api.nvim_set_keymap("n", "<leader>ts", "<cmd>lua _SPOTIFY_TOGGLE()<CR>", {noremap = true, silent = true})
+
