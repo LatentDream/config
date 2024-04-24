@@ -23,7 +23,7 @@ function toggle_theme()
     end
 end
 
-vim.api.nvim_set_keymap('n', '<leader>tt', ':lua toggle_theme()<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>tq', ':lua toggle_theme()<CR>', { noremap = true, silent = true })
 
 
 require("neo-tree").setup({

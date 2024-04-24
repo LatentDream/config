@@ -72,6 +72,8 @@ end
 
 
 vim.api.nvim_set_keymap("n", "<leader>tg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<leader>tf', "<cmd>1ToggleTerm direction=float<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>tt', "<cmd>2ToggleTerm direction=vertical<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>tp", "<cmd>lua _PYTHON_TOGGLE()<CR>", {noremap = true, silent = true})
 vim.api.nvim_set_keymap("n", "<leader>th", "<cmd>lua _HTOP_TOGGLE()<CR>", {noremap = true, silent = true})
 vim.api.nvim_set_keymap("n", "<leader>tn", "<cmd>lua _NODE_TOGGLE()<CR>", {noremap = true, silent = true})
