@@ -11,10 +11,15 @@ function toggle_theme()
     current_theme = 3 - current_theme
     if current_theme == 1 then
         require("gruvbox").setup()
+        vim.o.background = "dark"
         vim.cmd("colorscheme gruvbox")
     elseif current_theme == 2 then
-        require("gruber-darker").setup()
-        vim.cmd("colorscheme gruber-darker")
+        require("gruvbox").setup()
+        vim.o.background = "light"
+        vim.cmd("colorscheme gruvbox")
+        -- Background of extensions not properly set to light if not call two time
+        require("gruvbox").setup()
+        vim.cmd("colorscheme gruvbox")
     end
 end
 
