@@ -6,6 +6,7 @@ require("gruvbox").setup({
 vim.cmd("colorscheme gruvbox")
 
 current_theme = 1
+local lualine_config = require('lualine').get_config()
 
 function toggle_theme()
     current_theme = 3 - current_theme
@@ -13,6 +14,10 @@ function toggle_theme()
         require("gruvbox").setup()
         vim.o.background = "dark"
         vim.cmd("colorscheme gruvbox")
+        lualine_config.theme = "gruvbox_dark"
+        require('lualine').setup {
+            options = lualine_config
+        }
     elseif current_theme == 2 then
         require("gruvbox").setup()
         vim.o.background = "light"
@@ -20,6 +25,11 @@ function toggle_theme()
         -- Background of extensions not properly set to light if not call two time
         require("gruvbox").setup()
         vim.cmd("colorscheme gruvbox")
+        lualine_config.theme = "gruvbox_light"
+        require('lualine').setup {
+            options = lualine_config
+        }
+
     end
 end
 
