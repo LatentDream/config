@@ -23,7 +23,11 @@ function toggle_theme()
         vim.o.background = "light"
         vim.cmd("colorscheme gruvbox")
         -- Background of extensions not properly set to light if not call two time
-        require("gruvbox").setup()
+        require("gruvbox").setup({
+            palette_overrides = {
+                light0 = "#fbf6e5",
+            }
+        })
         vim.cmd("colorscheme gruvbox")
         lualine_config.theme = "gruvbox_light"
         require('lualine').setup {
