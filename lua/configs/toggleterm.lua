@@ -22,6 +22,7 @@ toggleterm.setup({
 		highlights = {
 			border = "Normal",
 		},
+		title_pos= "left"
 	},
 })
 
