@@ -83,10 +83,10 @@ return {
         },
       },
       config = function()
-        vim.keymap.set({ "n" }, "<leader>do", "<cmd>DiffviewOpen<CR>", { silent = true, desc = "[D]iffview [O]pen" })
-        vim.keymap.set({ "n" }, "<leader>dc", "<cmd>DiffviewClose<CR>", { silent = true, desc = "[D]iffview [C]lose" })
-        vim.keymap.set({ "n" }, "<leader>dh", "<cmd>DiffviewFileHistory<CR>", { silent = true, desc = "[D]iffview [H]istory" })
-        vim.keymap.set({ "n" }, "<leader>df", "<cmd>DiffviewFileHistory %<CR>", { silent = true, desc = "[D]iffview history if [F]ile" })
+        vim.keymap.set({ "n" }, "<leader>go", "<cmd>DiffviewOpen<CR>", { silent = true, desc = "[D]iffview [O]pen" })
+        vim.keymap.set({ "n" }, "<leader>gc", "<cmd>DiffviewClose<CR>", { silent = true, desc = "[D]iffview [C]lose" })
+        vim.keymap.set({ "n" }, "<leader>gh", "<cmd>DiffviewFileHistory<CR>", { silent = true, desc = "[D]iffview [H]istory" })
+        vim.keymap.set({ "n" }, "<leader>gb", "<cmd>DiffviewFileHistory %<CR>", { silent = true, desc = "[D]iffview history of current [B]uffer" })
       end,
     },
 
