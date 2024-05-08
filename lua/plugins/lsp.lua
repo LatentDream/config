@@ -13,10 +13,5 @@ return {
     'folke/neodev.nvim',
   },
   { "karloskar/poetry-nvim" },
-  {
-    'mrcjkb/rustaceanvim',
-    version = '^4', -- Recommended
-    ft = { 'rust' },
-  }
 }
 
