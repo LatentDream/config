@@ -1,0 +1,19 @@
+# yazi.toml
+[opener]
+edit = [
+  { run = 'nvim "$@"', block = true },
+]
+
+[plugin]
+prepend_previewers = [
+  { name = "*.md", run = "glow" },
+  { name = "*", run = "bat" },
+]
+
+[manager]
+ratio = [ 1, 3, 4 ]
+
+# shell
+shell_title  = [ "Shell:", "Shell (block):" ]
+shell_origin = "top-center"
+shell_offset = [ 0, 2, 50, 3 ]
