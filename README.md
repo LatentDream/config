@@ -2,7 +2,7 @@
 - This repo, nvim config
 ```bash
 cargo install ripgrep --locked
-cargo install zoxide --locked
+cargo install zoxide --locked   # Check zoxide repo for init script
 cargo install bat --locked
 cargo install just --locked
 cargo install yazi-fm yazi-cli --locked
@@ -15,7 +15,6 @@ cargo install lsd --locked
 - Neofetch [Git repo](https://github.com/dylanaraps/neofetch)
 ## Todo
 - Could be a nice touch: https://github.com/L3MON4D3/LuaSnip
-- https://github.com/starship/starship
 - aserowy/tmux.nvim
 
 
@@ -33,5 +32,4 @@ alias cg='cd `git rev-parse --show-toplevel`'
 alias v='nvim'
 alias y='yazi'
 alias ls='lsd -lgX --group-dirs first'
-neofetch
 ```
