@@ -77,11 +77,11 @@ cmp.setup {
     end, { 'i', 's' }),
   },
   sources = {
-    -- Copilot Source
-    { name = "copilot" },
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
+    { name = "copilot" },
     { name = 'path' },
+    { name = "crates" },
   },
   formatting = {
     format = lspkind.cmp_format({
