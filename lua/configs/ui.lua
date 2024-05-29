@@ -84,3 +84,5 @@ require("lualine").setup({
     tabline = {},
     extensions = {}
 })
+
+require('gitsigns').setup()
