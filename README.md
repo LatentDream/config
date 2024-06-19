@@ -13,6 +13,7 @@ cargo install lsd --locked
 - Markdown reader: [Glow](https://github.com/charmbracelet/glow)
 - MacOS window [manager](https://rectangleapp.com/): `brew install rectangle`
 - Neofetch [Git repo](https://github.com/dylanaraps/neofetch)
+- fzf
 ## Todo
 - Could be a nice touch: https://github.com/L3MON4D3/LuaSnip
 - aserowy/tmux.nvim
@@ -32,4 +33,5 @@ alias cg='cd `git rev-parse --show-toplevel`'
 alias v='nvim'
 alias y='yazi'
 alias ls='lsd -lgX --group-dirs first'
+alias lg='lazygit'
 ```
