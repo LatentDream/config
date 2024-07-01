@@ -17,3 +17,7 @@ vim.api.nvim_set_keymap('n', '<leader>ia', ':lua insertArrow()<CR>', { noremap =
 -- Some shortcuts
 vim.api.nvim_set_keymap('n', '<C-s>', ':w', { noremap = true, silent = true, desc = 'Save File' })
 vim.api.nvim_set_keymap('n', '<C-S>', ':aw', { noremap = true, silent = true, desc = 'Save all files' })
+
+-- small c conveniance
+vim.api.nvim_set_keymap('n', '<leader>h', ':ClangdSwitchSourceHeader<CR>', { noremap = true, silent = true, desc = '[h]eader & source toggle' })
+
