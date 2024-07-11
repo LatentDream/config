@@ -2,6 +2,7 @@ tags
 test.sh
 .luarc.json
 lazy-lock.json
+karabiner
 raycast
 solana
 github-copilot
