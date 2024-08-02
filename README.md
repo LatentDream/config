@@ -14,6 +14,7 @@ cargo install lsd --locked
 - MacOS window [manager](https://rectangleapp.com/): `brew install rectangle`
 - Neofetch [Git repo](https://github.com/dylanaraps/neofetch)
 - fzf
+- tmux plugin manager `git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm`
 ## Todo
 - Could be a nice touch: https://github.com/L3MON4D3/LuaSnip
 - aserowy/tmux.nvim

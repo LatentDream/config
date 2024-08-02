@@ -65,6 +65,13 @@ vim.api.nvim_set_keymap('n', '<C-Down>', ':resize -2<CR>', { noremap = true, sil
 vim.api.nvim_set_keymap('n', '<C-Left>', ':vertical resize -2<CR>', { noremap = true, silent = true, desc = 'Decrease window width' })
 vim.api.nvim_set_keymap('n', '<C-Right>', ':vertical resize +2<CR>', { noremap = true, silent = true, desc = 'Increase window width' })
 
+-- Move between windows
+vim.api.nvim_set_keymap('n', '<C-h>', ':TmuxNavigateLeft<CR>', { noremap = true, silent = true, desc = 'Move to the left window' })
+vim.api.nvim_set_keymap('n', '<C-j>', ':TmuxNavigateDown<CR>', { noremap = true, silent = true, desc = 'Move to the down window' })
+vim.api.nvim_set_keymap('n', '<C-k>', ':TmuxNavigateUp<CR>', { noremap = true, silent = true, desc = 'Move to the up window' })
+vim.api.nvim_set_keymap('n', '<C-l>', ':TmuxNavigateRight<CR>', { noremap = true, silent = true, desc = 'Move to the right window' })
+vim.api.nvim_set_keymap('n', '<C-\\>', ':TmuxNavigatePrevious<CR>', { noremap = true, silent = true, desc = 'Move to the previous window' })
+
 -- Custom insert
 function insertArrow()
     vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("i →", true, true, true), 'n', true)
@@ -73,8 +80,7 @@ end
 vim.api.nvim_set_keymap('n', '<leader>ia', ':lua insertArrow()<CR>', { noremap = true, silent = true })
 
 -- Some shortcuts
-vim.api.nvim_set_keymap('n', '<C-s>', ':w', { noremap = true, silent = true, desc = 'Save File' })
-vim.api.nvim_set_keymap('n', '<C-S>', ':aw', { noremap = true, silent = true, desc = 'Save all files' })
-vim.api.nvim_set_keymap('n', '<leader><leader>', '@@', { noremap = true, silent = true, desc = 'Repeat last macro' })
+vim.api.nvim_set_keymap('n', '<C-s>', ':w<CR>', { noremap = true, silent = true, desc = 'Save File' })
+vim.api.nvim_set_keymap('n', '<C-S>', ':aw<CR>', { noremap = true, silent = true, desc = 'Save all files' })
 vim.api.nvim_set_keymap('n', '<leader>p', ':put! =@0<CR>', { noremap = true, silent = true, desc = 'Paste' })
 vim.api.nvim_set_keymap('v', '<leader>p', ':put! =@0<CR>', { noremap = true, silent = true, desc = 'Paste' })

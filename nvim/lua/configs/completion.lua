@@ -52,12 +52,12 @@ cmp.setup {
   mapping = cmp.mapping.preset.insert {
     ['<C-u>'] = cmp.mapping.scroll_docs(-4),
     ['<C-d>'] = cmp.mapping.scroll_docs(4),
-    ['<C-y>'] = cmp.mapping.complete {},
-    ['<C-Space>'] = cmp.mapping.confirm {
+    ['<C-c>'] = cmp.mapping.complete {},
+    ['<C-y>'] = cmp.mapping.confirm {
       behavior = cmp.ConfirmBehavior.Replace,
       select = false,
     },
-    ['<C-CR>'] = cmp.mapping.confirm {
+    ['<C-Space>'] = cmp.mapping.confirm {
       behavior = cmp.ConfirmBehavior.Replace,
       select = false,
     },
