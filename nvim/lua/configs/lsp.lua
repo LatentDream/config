@@ -42,23 +42,32 @@ vim.api.nvim_set_keymap('n', '<leader>ff', ':Format<CR>', { noremap = true, sile
 
 
 -- document existing key chains
-require('which-key').register {
-  ['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
-  ['<leader>d'] = { name = '[D]ocument', _ = 'which_key_ignore' },
-  ['<leader>g'] = { name = '[G]it', _ = 'which_key_ignore' },
-  ['<leader>r'] = { name = '[R]ename', _ = 'which_key_ignore' },
-  ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
-  ['<leader>t'] = { name = '[T]oggle', _ = 'which_key_ignore' },
-  ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
-  ['<leader>b'] = { name = '[B]uffer', _ = 'which_key_ignore' },
-  ['<leader>i'] = { name = '[I]nsert', _ = 'which_key_ignore' },
-  ['<leader>x'] = { name = '[X]Error', _ = 'which_key_ignore' },
-  ['<leader>f'] = { name = '[F]ile', _ = 'which_key_ignore' },
-}
--- register which-key VISUAL mode
-require('which-key').register({
-  ['<leader>'] = { name = 'VISUAL <leader>' },
-}, { mode = 'v' })
+local wk = require("which-key")
+wk.add({
+  { "<leader>b",  group = "[B]uffer" },
+  { "<leader>b_", hidden = true },
+  { "<leader>c",  group = "[C]ode" },
+  { "<leader>c_", hidden = true },
+  { "<leader>d",  group = "[D]ocument" },
+  { "<leader>d_", hidden = true },
+  { "<leader>f",  group = "[F]ile" },
+  { "<leader>f_", hidden = true },
+  { "<leader>g",  group = "[G]it" },
+  { "<leader>g_", hidden = true },
+  { "<leader>i",  group = "[I]nsert" },
+  { "<leader>i_", hidden = true },
+  { "<leader>r",  group = "[R]ename" },
+  { "<leader>r_", hidden = true },
+  { "<leader>s",  group = "[S]earch" },
+  { "<leader>s_", hidden = true },
+  { "<leader>t",  group = "[T]oggle" },
+  { "<leader>t_", hidden = true },
+  { "<leader>w",  group = "[W]orkspace" },
+  { "<leader>w_", hidden = true },
+  { "<leader>x",  group = "[X]Error" },
+  { "<leader>x_", hidden = true },
+  { "<leader>", group = "VISUAL <leader>", mode = "v" },
+})
 
 -- mason-lspconfig requires that these setup functions are called in this order
 -- before setting up the servers.
@@ -124,38 +133,4 @@ require 'lspconfig'.pylsp.setup {
       }
     }
   }
-}
-
--- Clangd: Fix encoding problem
-local lspconfig = require("lspconfig.configs")
-local cmp_capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
-local clangd_capabilities = cmp_capabilities
-clangd_capabilities.textDocument.semanticHighlighting = true
-clangd_capabilities.offsetEncoding = "utf-8"
-
-local clangd_cmd = {
-  "clangd",
-  "--background-index",
-  "--pch-storage=memory",
-  "--clang-tidy",
-  "--suggest-missing-includes",
-  "--cross-file-rename",
-  "--completion-style=detailed"
-}
-
-local is_windows = package.config:sub(1,1) == '\\'
-if is_windows then
-  table.insert(clangd_cmd, "-IC:/w64DevKit/include")
-end
-
-
-lspconfig.clangd.setup {
-  capabilities = clangd_capabilities,
-  cmd = clangd_cmd,
-  init_options = {
-    clangdFileStatus = true,
-    usePlaceholders = true,
-    completeUnimported = true,
-    semanticHighlighting = true,
-  },
 }

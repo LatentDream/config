@@ -35,4 +35,5 @@ alias v='nvim'
 alias y='yazi'
 alias ls='lsd -lgX --group-dirs first'
 alias lg='lazygit'
+alias ld='lazydocker'
 ```
