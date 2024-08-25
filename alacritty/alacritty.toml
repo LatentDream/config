@@ -1,5 +1,8 @@
 live_config_reload = true
 
+# For windows -- Start directly in WSL instance
+# shell.program = "ubuntu"
+
 [window]
 decorations = "buttonless"
 dynamic_padding = true 
@@ -8,6 +11,10 @@ opacity = 0.9
 [window.padding]
 x = 25
 y = 20
+
+[window.dimensions]
+columns = 130
+lines = 40
 
 [font]
 size = 15.0
@@ -27,5 +34,3 @@ style = "Medium Italic"
 [font.normal]
 family = "JetBrainsMono Nerd Font"
 style = "Medium"
-
-
