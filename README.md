@@ -55,3 +55,8 @@ cat ~/.config/.bashrc >> ~/.bashrc
 6. _Optional_
 - Terminal Markdown Reader: [Glow](https://github.com/charmbracelet/glow)
 - MacOS Window Manager: [Rectangle](https://rectangleapp.com/): `brew install rectangle`
+
+---
+
+# TODO
+- A way to quickly see the suspended process of the terminal I'm in in tmux
