@@ -19,6 +19,10 @@ alias la='ls -A'
 eval "$(zoxide init bash)"
 eval "$(fzf --bash)"
 
+# Tmux session start
+alias tmux-new='~/.config/scripts/create_tmux_session.sh'
+alias tmux-new-conda='~/.config/scripts/create_tmux_session.sh conda-start'
+
 # Yazi sub-shell ----------------
 function yy() {
     local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
