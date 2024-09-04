@@ -31,6 +31,7 @@ cargo install just --locked
 cargo install yazi-fm yazi-cli --locked
 cargo install silicon --locked
 cargo install lsd --locked
+cargo install git-delta
 
 # Package (`brew install on mac`)
 sudo apt install fzf
@@ -47,12 +48,18 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ~/.tmux/plugins/tpm/tpm
 ```
 
-5. Add the content of the `.bashrc` for this repo to the system one for the shortcuts
+5. Add the content of the `.bashrc` of this repo to the system one for the shortcuts
 ```
 cat ~/.config/.bashrc >> ~/.bashrc
 ```
 
-6. _Optional_
+6. Add the content of the `.gitconfig` of this repo to the system one to modify `git diff` `git show` ... output with `delta`
+```
+cat ~/.config/.gitconfig >> ~/.gitconfig
+```
+
+
+7. _Optional_
 - Terminal Markdown Reader: [Glow](https://github.com/charmbracelet/glow)
 - MacOS Window Manager: [Rectangle](https://rectangleapp.com/): `brew install rectangle`
 
