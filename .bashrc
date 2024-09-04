@@ -22,6 +22,7 @@ eval "$(fzf --bash)"
 # Tmux session start
 alias tmux-new='~/.config/scripts/create_tmux_session.sh'
 alias tmux-new-conda='~/.config/scripts/create_tmux_session.sh conda-start'
+alias tmux-new-poetry='~/.config/scripts/create_tmux_session.sh poetry'
 
 # Yazi sub-shell ----------------
 function yy() {

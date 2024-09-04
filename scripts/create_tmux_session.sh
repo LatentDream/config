@@ -16,8 +16,14 @@ if [ $? != 0 ]; then
 
     # If conda-start parameter is provided, start conda in all windows
     if [ "$1" = "conda-start" ]; then
-        tmux send-keys -t "$SESSION_NAME:Editor" "conda activate" C-m
-        tmux send-keys -t "$SESSION_NAME:Terminal" "conda activate" C-m
+        tmux send-keys -t "$SESSION_NAME:Editor" "conda-start; conda activate" C-m
+        tmux send-keys -t "$SESSION_NAME:Terminal" "conda-start; conda activate" C-m
+    fi
+
+    # If conda-start parameter is provided, start conda in all windows
+    if [ "$1" = "poetry" ]; then
+        tmux send-keys -t "$SESSION_NAME:Editor" "poetry shell" C-m
+        tmux send-keys -t "$SESSION_NAME:Terminal" "poetry shell" C-m
     fi
 
     # Attach to the session
