@@ -39,6 +39,8 @@ end
 
 vim.api.nvim_set_keymap('n', '<leader>tq', ':lua toggle_theme()<CR>', { noremap = true, silent = true })
 
+vim.api.nvim_set_keymap('n', '<leader>tr', ':RenderMarkdown toggle<CR>', { noremap = true, silent = true, desc = '[t]oggle [render] markdown' })
+
 
 require("neo-tree").setup({
     window = {
