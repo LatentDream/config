@@ -28,4 +28,4 @@ function lazygit_toggle()
 end
 
 -- Set the mapping
-vim.api.nvim_set_keymap('n', '<leader>tt', '<cmd>lua lazygit_toggle()<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>tg', '<cmd>lua lazygit_toggle()<CR>', { noremap = true, silent = true })
