@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Git keys
+eval $(ssh-agent); ssh-add ~/.ssh/github
+
 # Run Lazygit
 lazygit
 
