@@ -42,5 +42,8 @@ return {
         },
       },
     },
+  },
+  {
+    "onsails/lspkind.nvim"
   }
 }

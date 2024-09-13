@@ -29,11 +29,9 @@ lspkind.init({
     Event = "",
     Operator = "󰆕",
     TypeParameter = "",
-    Copilot = "",
   },
 })
 
-vim.api.nvim_set_hl(0, "CmpItemKindCopilot", {fg ="#6CC644"})
 -- See `:help cmp`
 local cmp = require 'cmp'
 local luasnip = require 'luasnip'
@@ -83,7 +81,6 @@ cmp.setup {
   sources = {
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
-    { name = "copilot" },
     { name = 'path' },
     { name = "crates" },
   },
