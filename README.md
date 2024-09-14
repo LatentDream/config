@@ -7,63 +7,96 @@
 - [Some scripts](./scripts/)
 - [Some cool icons](./assets/)
 
+# Development Environment Setup
 
-## Installation
+Always a `WIP` :)
 
-1. Clone this repo 
-```
-git clone https://github.com/LatentDream/config ~/.config
-```
+## Prerequisites
 
-2. Install dependencies
-- [Rust](https://www.rust-lang.org/tools/install)
-- Node - Depend on the platform
-- On Mac, install the missing package manager: `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
+Ensure you have the following installed:
+- Git
+- Curl or Wget
 
-3. Install the utilities
+## Quick Start
 
-```bash
-# From Cargo - Build from source
-cargo install ripgrep --locked
-cargo install zoxide --locked   # Check zoxide repo for init script (already in `./.bashrc`)
-cargo install bat --locked
-cargo install just --locked
-cargo install yazi-fm yazi-cli --locked
-cargo install silicon --locked
-cargo install lsd --locked
-cargo install git-delta
+1. Install Just:
+   ```bash
+   # On macOS
+   brew install just
 
-# Package (`brew install on mac`)
-sudo apt install fzf
-sudo apt install unzip
-sudo apt install clangd
-sudo apt install gcc
-```
-- [lazygit](https://github.com/jesseduffield/lazygit)
-- [lazydocker](https://github.com/jesseduffield/lazydocker)
+   # On Ubuntu/Debian
+   sudo apt-get update
+   sudo apt-get install just
 
-4. Install Tmux package manager
-```
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-~/.tmux/plugins/tpm/tpm
-```
+   # Using cargo (Rust's package manager)
+   cargo install just
+   ```
 
-5. Add the content of the `.bashrc` of this repo to the system one for the shortcuts
-```
-cat ~/.config/.bashrc >> ~/.bashrc
-```
+2. Clone this repository:
+   ```bash
+   git clone https://github.com/LatentDream/config ~/.config
+   ```
 
-6. Add the content of the `.gitconfig` of this repo to the system one to modify `git diff` `git show` ... output with `delta`
-```
-cat ~/.config/.gitconfig >> ~/.gitconfig
-```
+3. Navigate to the cloned directory:
+   ```bash
+   cd ~/.config
+   ```
 
+4. Run the installation:
+   ```bash
+   # For Linux (Debian/Ubuntu)
+   just install-all
 
-7. _Optional_
-- Terminal Markdown Reader: [Glow](https://github.com/charmbracelet/glow)
-- MacOS Window Manager: [Rectangle](https://rectangleapp.com/): `brew install rectangle`
+   # For macOS
+   just install-all-mac
+   ```
 
----
+5. Restart your terminal or source your `.bashrc`:
+   ```bash
+   source ~/.bashrc
+   ```
 
-# TODO
-- A way to quickly see the suspended process of the terminal I'm in in tmux
+6. For tmux, open a tmux session and press `prefix` + `I` (capital i) to install the plugins.
+
+## Detailed Installation Steps
+
+The `justfile` automates most of the installation process. Here's what it does:
+
+1. Clones this configuration repository
+2. Installs Rust
+3. Installs Go
+4. Installs various Cargo utilities (ripgrep, zoxide, bat, just, yazi, silicon, lsd, git-delta)
+5. Installs system packages (fzf, unzip, clangd, gcc)
+6. Installs Lazygit and Lazydocker
+7. Sets up Tmux plugin manager
+8. Appends necessary configurations to .bashrc and .gitconfig
+
+### Manual Steps
+
+After running the automated installation, you may need to:
+
+1. Restart your terminal or source your `.bashrc`:
+   ```bash
+   source ~/.bashrc
+   ```
+
+3. For Neovim, open Neovim and it should automatically install plugins on first run.
+
+## Optional Installations
+
+The justfile includes recipes for some optional tools:
+
+- Glow: A terminal-based markdown reader
+  ```bash
+  just install-glow
+  ```
+
+- Rectangle (macOS only): A window manager
+  ```bash
+  just install-rectangle
+  ```
+
+## Acknowledgements
+
+**Special thanks to**:
+- That person who wrote the obscure blog post that solved that one weird bug (happened multiple times)
