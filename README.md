@@ -1,4 +1,9 @@
-# Dev Env Confgs
+# Development Environment Setup
+
+Always a `WIP` :)
+
+![demo](./demo.png)
+
 - [Neovim](./nvim/)
 - [tmux](./.tmux.conf)
 - [Alacritty](./alacritty/)
@@ -7,9 +12,6 @@
 - [Some scripts](./scripts/)
 - [Some cool icons](./assets/)
 
-# Development Environment Setup
-
-Always a `WIP` :)
 
 ## Prerequisites
 
