@@ -30,7 +30,7 @@ function Draw-Menu {
 "@
 
     # Calculate vertical positioning
-    $options = @("Ubuntu - Perso", "Debian - Work")
+    $options = @("Perso", "Work")
     $titleLines = ($title -split "`n").Count
     $totalContentHeight = $titleLines + 3 + $options.Count * 2  # Title + spacing + options
     $topPadding = [math]::Max(0, ($height - $totalContentHeight) / 2)
@@ -95,7 +95,7 @@ while ($running) {
         13 { # Enter
             switch ($SelectedIndex) {
                 0 { wsl -d Ubuntu -- bash -c "cd ~ && clear && bash" }
-                1 { wsl -d Debian -- bash -c "cd ~ && clear && bash" }
+                1 { wsl -d Ubuntu-24.04 -- bash -c "cd ~ && clear && bash" }
             }
             $running = $false
         }
