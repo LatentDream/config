@@ -1,7 +1,48 @@
 live_config_reload = true
 
-# For windows -- Start directly in WSL instance
+## Windows
+## ------- Start directly in WSL instance
 # shell.program = "ubuntu"
+## ------- or start the script to choose between distro:
+# [shell]
+# program = "powershell"
+# args = [
+#     "-NoExit",
+#     "-Command",
+#     "& {PowerShell -ExecutionPolicy Bypass -File C:\\Users\\Dream\\wsl-selector.ps1}"
+# ]
+
+[window]
+decorations = "buttonless"
+dynamic_padding = true 
+opacity = 0.9
+
+[window.padding]
+x = 25
+y = 20
+
+[window.dimensions]
+columns = 130
+lines = 40
+
+[font]
+size = 15.0
+
+[font.bold]
+family = "JetBrainsMono Nerd Font"
+style = "Heavy"
+
+[font.bold_italic]
+family = "JetBrainsMono Nerd Font"
+style = "Heavy Italic"
+
+[font.italic]
+family = "JetBrainsMono Nerd Font"
+style = "Medium Italic"
+
+[font.normal]
+family = "JetBrainsMono Nerd Font"
+style = "Medium"
 
 [window]
 decorations = "buttonless"

@@ -1,7 +1,5 @@
 # Development Environment Setup
 
-Always a `WIP` :)
-
 ![demo](./demo.png)
 
 - [Neovim](./nvim/)
@@ -11,7 +9,6 @@ Always a `WIP` :)
 - [yazi](./yazi/)
 - [Some scripts](./scripts/)
 - [Some cool icons](./assets/)
-
 
 ## Prerequisites
 
@@ -98,7 +95,8 @@ The justfile includes recipes for some optional tools:
   just install-rectangle
   ```
 
-## Acknowledgements
+## WSL Setup
 
-**Special thanks to**:
-- That person who wrote the obscure blog post that solved that one weird bug (happened multiple times)
+1. Move `./wsl-selector.ps1` to `~/` of your profile
+2. Move `./alacritty/*` to `~/AppData/roaming/alacritty/*`
+3. Un-comment the lauch of the `wsl-selector.ps1` script
