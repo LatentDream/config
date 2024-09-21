@@ -1,7 +1,29 @@
+```
+                                              _,--._.-,
+                                              /\_r-,\_ )
+                                           .-.) _;='_/ (.;
+                                            \ \'     \/S )
+                                            L.'-. _.'|-'
+                                              <_`-'\'_.'/
+                                              `'-._( \
+                                           ___   \\,      ___
+                                          \ .'-. \\   .-'_. /
+                                           '._' '.\\/.-'_.'
+                                              '--``\('--'
+                                                   \\
+                                                  `\\,
+                                                    \|
+
+```
+<p align="center">
+   <h1 align="center"><b>Development Environment Setup.</b></h1>
+   <p align="center">
+      <br />
+      <!--<a href="https://latent.blog"><strong>By Gui »</strong></a>-->
+  </p>
+</p> 
+
 # Development Environment Setup
-
-![demo](./demo.png)
-
 - [Neovim](./nvim/)
 - [tmux](./.tmux.conf)
 - [Alacritty](./alacritty/)
@@ -14,7 +36,7 @@
 
 Ensure you have the following installed:
 - Git
-- Curl or Wget
+- curl or wget
 
 ## Quick Start
 
@@ -64,22 +86,12 @@ The `justfile` automates most of the installation process. Here's what it does:
 1. Clones this configuration repository
 2. Installs Rust
 3. Installs Go
-4. Installs various Cargo utilities (ripgrep, zoxide, bat, just, yazi, silicon, lsd, git-delta)
 5. Installs system packages (fzf, unzip, clangd, gcc)
+4. Installs various Cargo utilities (ripgrep, zoxide, bat, just, yazi, silicon, lsd, git-delta)
+   - TODO: Fix silicon
 6. Installs Lazygit and Lazydocker
 7. Sets up Tmux plugin manager
 8. Appends necessary configurations to .bashrc and .gitconfig
-
-### Manual Steps
-
-After running the automated installation, you may need to:
-
-1. Restart your terminal or source your `.bashrc`:
-   ```bash
-   source ~/.bashrc
-   ```
-
-3. For Neovim, open Neovim and it should automatically install plugins on first run.
 
 ## Optional Installations
 
@@ -100,3 +112,11 @@ The justfile includes recipes for some optional tools:
 1. Move `./wsl-selector.ps1` to `~/` of your profile
 2. Move `./alacritty/*` to `~/AppData/roaming/alacritty/*`
 3. Un-comment the lauch of the `wsl-selector.ps1` script
+
+## Screenshot
+
+![demo](./demo.png)
+
+
+## TODO:
+- [ ] Add a git blame in nvim
