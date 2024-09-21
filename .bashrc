@@ -33,6 +33,9 @@ alias tmux-new='~/.config/scripts/create_tmux_session.sh'
 alias tmux-new-conda='~/.config/scripts/create_tmux_session.sh conda-start'
 alias tmux-new-poetry='~/.config/scripts/create_tmux_session.sh poetry'
 
+# Conda
+alias conda-start='eval "$(/home/dream/.miniconda3/bin/conda shell.bash hook)"'
+
 # Yazi sub-shell ----------------
 function yy() {
     local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
