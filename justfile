@@ -140,7 +140,7 @@ install-rectangle:
     brew install --cask rectangle
 
 # Run all installation steps
-install-all: install-rust install-system-packages-ubuntu install-cargo-utils install-nvim-ubuntu append-bashrc append-gitconfig install-go install-lazy install-glow install-tmux-plugin-manager
+install-all: install-rust install-system-packages-ubuntu install-cargo-utils install-nvim-ubuntu append-bashrc append-gitconfig install-go install-lazy install-glow install-tmux
 
 # Run all installation steps for macOS
-install-all-mac: install-rust install-go-mac install-homebrew install-cargo-utils install-system-packages-mac install-lazy install-lazy install-tmux-plugin-manager append-bashrc append-gitconfig install-rectangle
+install-all-mac: install-rust install-go-mac install-homebrew install-cargo-utils install-system-packages-mac install-lazy install-lazy install-tmux append-bashrc append-gitconfig install-rectangle
