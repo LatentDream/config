@@ -16,14 +16,13 @@
 
 ```
 <p align="center">
-   <h1 align="center"><b>Development Environment Setup.</b></h1>
+   <h1 align="center"><b>Development Environment Setup</b></h1>
    <p align="center">
       <br />
       <!--<a href="https://latent.blog"><strong>By Gui »</strong></a>-->
   </p>
 </p> 
 
-# Development Environment Setup
 - [Neovim](./nvim/)
 - [tmux](./.tmux.conf)
 - [Alacritty](./alacritty/)
@@ -32,16 +31,14 @@
 - [Some scripts](./scripts/)
 - [Some cool icons](./assets/)
 
-## Prerequisites
-
-Ensure you have the following installed:
-- Git
-- curl or wget
-
 ## Quick Start
 
 1. Install Just:
    ```bash
+   # Make sure the following are install:
+   # - Git
+   # - curl or wget
+
    # On macOS
    brew install just
 
@@ -116,7 +113,6 @@ The justfile includes recipes for some optional tools:
 ## Screenshot
 
 ![demo](./demo.png)
-
 
 ## TODO:
 - [ ] Add a git blame in nvim

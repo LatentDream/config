@@ -117,6 +117,19 @@ append-bashrc:
 append-gitconfig:
     cat ~/.config/.gitconfig >> ~/.gitconfig
 
+# Node installation for WSL2
+install-node-wsl:
+    sudo apt update && sudo apt upgrade
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
+    command -v nvm
+    source ~/.bashrc
+    command -v nvm
+    nvm ls
+    nvm install --lts
+    nvm install node
+    nvm ls
+    node --version
+
 # Install Glow (optional)
 install-glow:
     #!/usr/bin/env bash
