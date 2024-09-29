@@ -30,7 +30,7 @@ function Draw-Menu {
 "@
 
     # Calculate vertical positioning
-    $options = @("Perso", "Work")
+    $options = @("Perso", "Work", "Host")
     $titleLines = ($title -split "`n").Count
     $totalContentHeight = $titleLines + 3 + $options.Count * 2  # Title + spacing + options
     $topPadding = [math]::Max(0, ($height - $totalContentHeight) / 2)
@@ -46,7 +46,7 @@ function Draw-Menu {
     }
     Write-Host "`n"
     
-    # Draw option
+    # Draw options
     $maxLength = ($options | Measure-Object -Property Length -Maximum).Maximum
     for ($i = 0; $i -lt $options.Count; $i++) {
         $option = $options[$i]
@@ -78,6 +78,7 @@ function Draw-Menu {
 # Main script
 $SelectedIndex = 0
 $running = $true
+$options = @("Perso", "Work", "Latent.host")
 
 while ($running) {
     Draw-Menu -SelectedIndex $SelectedIndex
@@ -86,16 +87,18 @@ while ($running) {
     
     switch ($key.VirtualKeyCode) {
         38 { $SelectedIndex = [Math]::Max(0, $SelectedIndex - 1) } # Up arrow
-        40 { $SelectedIndex = [Math]::Min(1, $SelectedIndex + 1) } # Down arrow
+        40 { $SelectedIndex = [Math]::Min($options.Count - 1, $SelectedIndex + 1) } # Down arrow
         72 { $SelectedIndex = [Math]::Max(0, $SelectedIndex - 1) } # h
-        74 { $SelectedIndex = [Math]::Min(1, $SelectedIndex + 1) } # j
+        74 { $SelectedIndex = [Math]::Min($options.Count - 1, $SelectedIndex + 1) } # j
         75 { $SelectedIndex = [Math]::Max(0, $SelectedIndex - 1) } # k
-        76 { $SelectedIndex = [Math]::Min(1, $SelectedIndex + 1) } # l
+        76 { $SelectedIndex = [Math]::Min($options.Count - 1, $SelectedIndex + 1) } # l
         81 { $running = $false } # q to quit
         13 { # Enter
             switch ($SelectedIndex) {
                 0 { wsl -d Ubuntu -- bash -c "cd ~ && clear && bash" }
                 1 { wsl -d Ubuntu-24.04 -- bash -c "cd ~ && clear && bash" }
+                2 { wsl -d Ubuntu -- bash -c "cd ~ && clear && bash ./.config/scripts/ssh-latent-host.sh" }
+
             }
             $running = $false
         }
