@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Get the current folder name
-SESSION_NAME=$(basename "$PWD")
+# Get the current folder name (handling folders with dots)
+SESSION_NAME=$(basename "$PWD" | tr . _)
 
 # Check if tmux is already running
 tmux has-session -t "$SESSION_NAME" 2>/dev/null
