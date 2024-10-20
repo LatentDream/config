@@ -24,11 +24,11 @@ local harpoon = require("harpoon")
 
 -- Your existing keybindings
 vim.keymap.set("n", "<leader>j", mark.add_file, { desc = '[H]arpoon [A]add file'})
-vim.keymap.set("n", "<leader><space>", ui.toggle_quick_menu, { desc = '[H]arpoon Explorer'})
-vim.keymap.set("n", "<leader>hq", function() ui.nav_file(1) end, { desc = '[H]arpoon 1'})
-vim.keymap.set("n", "<leader>hw", function() ui.nav_file(2) end, { desc = '[H]arpoon 2'})
-vim.keymap.set("n", "<leader>he", function() ui.nav_file(3) end, { desc = '[H]arpoon 3'})
-vim.keymap.set("n", "<leader>hr", function() ui.nav_file(4) end, { desc = '[H]arpoon 4'})
+vim.keymap.set("n", "<leader>k", ui.toggle_quick_menu, { desc = '[H]arpoon Explorer'})
+vim.keymap.set("n", "<leader>hn", function() ui.nav_file(1) end, { desc = '[H]arpoon 1'})
+vim.keymap.set("n", "<leader>hm", function() ui.nav_file(2) end, { desc = '[H]arpoon 2'})
+vim.keymap.set("n", "<leader>h,", function() ui.nav_file(3) end, { desc = '[H]arpoon 3'})
+vim.keymap.set("n", "<leader>h.", function() ui.nav_file(4) end, { desc = '[H]arpoon 4'})
 
 -- Add navigation with Shift+H and Shift+L
 vim.keymap.set("n", "H", function()
