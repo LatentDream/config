@@ -109,9 +109,9 @@ install-tmux:
     cp ./.tmux.conf ~/.tmux.conf
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
-# Append .bashrc content
+# Auto source the `.config/.bashrc` file
 append-bashrc:
-    cat ~/.config/.bashrc >> ~/.bashrc
+    echo "source ./.config/.bashrc" >> ~/.bashrc
 
 # Append .gitconfig content
 append-gitconfig:

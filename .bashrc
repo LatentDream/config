@@ -45,3 +45,5 @@ function yy() {
     fi
     rm -f -- "$tmp"
 }
+
+export EDITOR="/usr/bin/vim" 
