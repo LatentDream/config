@@ -59,6 +59,11 @@ config.keys = {
             window:set_config_overrides(overrides)
         end),
     },
+    {
+        key = "V",
+        mods = "CTRL|SHIFT",
+        action = wezterm.action.PasteFrom("Clipboard"),
+    },
 }
 
 -- Define themes --------------------------------------------
