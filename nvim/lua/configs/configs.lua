@@ -48,6 +48,20 @@ vim.o.tabstop = 4
 vim.o.shiftwidth = 4
 vim.o.expandtab = true
 
+
+-- Function to toggle colorcolumn
+function toggle_colorcolumn()
+  if vim.wo.colorcolumn == "" then
+    vim.wo.colorcolumn = "89"
+  else
+    vim.wo.colorcolumn = ""
+  end
+end
+
+-- Set up a keymap to toggle colorcolumn
+vim.api.nvim_set_keymap('n', '<leader>tc', ':lua toggle_colorcolumn()<CR>',
+  { noremap = true, silent = true, desc = 'Toggle colorcolumn' })
+
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
@@ -60,21 +74,30 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 -- Resize window using <Ctrl> arrow keys
-vim.api.nvim_set_keymap('n', '<C-Up>', ':resize +2<CR>', { noremap = true, silent = true, desc = 'Increase window height' })
-vim.api.nvim_set_keymap('n', '<C-Down>', ':resize -2<CR>', { noremap = true, silent = true, desc = 'Decrease window height' })
-vim.api.nvim_set_keymap('n', '<C-Left>', ':vertical resize -2<CR>', { noremap = true, silent = true, desc = 'Decrease window width' })
-vim.api.nvim_set_keymap('n', '<C-Right>', ':vertical resize +2<CR>', { noremap = true, silent = true, desc = 'Increase window width' })
+vim.api.nvim_set_keymap('n', '<C-Up>', ':resize +2<CR>',
+  { noremap = true, silent = true, desc = 'Increase window height' })
+vim.api.nvim_set_keymap('n', '<C-Down>', ':resize -2<CR>',
+  { noremap = true, silent = true, desc = 'Decrease window height' })
+vim.api.nvim_set_keymap('n', '<C-Left>', ':vertical resize -2<CR>',
+  { noremap = true, silent = true, desc = 'Decrease window width' })
+vim.api.nvim_set_keymap('n', '<C-Right>', ':vertical resize +2<CR>',
+  { noremap = true, silent = true, desc = 'Increase window width' })
 
 -- Move between windows
-vim.api.nvim_set_keymap('n', '<C-h>', ':TmuxNavigateLeft<CR>', { noremap = true, silent = true, desc = 'Move to the left window' })
-vim.api.nvim_set_keymap('n', '<C-j>', ':TmuxNavigateDown<CR>', { noremap = true, silent = true, desc = 'Move to the down window' })
-vim.api.nvim_set_keymap('n', '<C-k>', ':TmuxNavigateUp<CR>', { noremap = true, silent = true, desc = 'Move to the up window' })
-vim.api.nvim_set_keymap('n', '<C-l>', ':TmuxNavigateRight<CR>', { noremap = true, silent = true, desc = 'Move to the right window' })
-vim.api.nvim_set_keymap('n', '<C-\\>', ':TmuxNavigatePrevious<CR>', { noremap = true, silent = true, desc = 'Move to the previous window' })
+vim.api.nvim_set_keymap('n', '<C-h>', ':TmuxNavigateLeft<CR>',
+  { noremap = true, silent = true, desc = 'Move to the left window' })
+vim.api.nvim_set_keymap('n', '<C-j>', ':TmuxNavigateDown<CR>',
+  { noremap = true, silent = true, desc = 'Move to the down window' })
+vim.api.nvim_set_keymap('n', '<C-k>', ':TmuxNavigateUp<CR>',
+  { noremap = true, silent = true, desc = 'Move to the up window' })
+vim.api.nvim_set_keymap('n', '<C-l>', ':TmuxNavigateRight<CR>',
+  { noremap = true, silent = true, desc = 'Move to the right window' })
+vim.api.nvim_set_keymap('n', '<C-\\>', ':TmuxNavigatePrevious<CR>',
+  { noremap = true, silent = true, desc = 'Move to the previous window' })
 
 -- Custom insert
 function insertArrow()
-    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("i →", true, true, true), 'n', true)
+  vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("i →", true, true, true), 'n', true)
 end
 
 vim.api.nvim_set_keymap('n', '<leader>ia', ':lua insertArrow()<CR>', { noremap = true, silent = true })
