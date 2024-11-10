@@ -111,7 +111,7 @@ install-tmux:
 
 # Auto source the `.config/.bashrc` file
 append-bashrc:
-    echo "source ./.config/.bashrc" >> ~/.bashrc
+    echo "source ~/.config/.bashrc" >> ~/.bashrc
 
 # Append .gitconfig content
 append-gitconfig:
