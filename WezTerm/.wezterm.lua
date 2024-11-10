@@ -206,4 +206,6 @@ config.window_background_image_hsb = {
     brightness = 0.01,
 }
 
+config.audible_bell = "Disabled"
+
 return config
