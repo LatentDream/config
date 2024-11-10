@@ -28,13 +28,17 @@ eval "$(zoxide init bash)"
 eval "$(zoxide init bash)"
 eval "$(fzf --bash)"
 
+
 # Tmux session start
 alias tmux-new='~/.config/scripts/create_tmux_session.sh'
 alias tmux-new-conda='~/.config/scripts/create_tmux_session.sh conda-start'
 alias tmux-new-poetry='~/.config/scripts/create_tmux_session.sh poetry'
 
+
 # Conda
 alias conda-start='eval "$(/home/dream/.miniconda3/bin/conda shell.bash hook)"'
+alias cs='eval "$(/home/dream/.miniconda3/bin/conda shell.bash hook)"'
+
 
 # Yazi sub-shell ----------------
 function yy() {
@@ -46,4 +50,11 @@ function yy() {
     rm -f -- "$tmp"
 }
 
+
+# Default stuff -----------------
 export EDITOR="/usr/bin/vim" 
+
+
+# SSH Keys ---------------------
+eval $(ssh-agent); ssh-add ~/.ssh/github
+
