@@ -1,4 +1,11 @@
 -- [[ Configure LSP ]]
+
+-- Some utilities
+vim.keymap.set("n", "<leader>ls", ':LspStart<cr>', { desc = '[L]sp [s]tart'})
+vim.keymap.set("n", "<leader>lp", ':LspStop<cr>', { desc = '[L]sp [p]pause'})
+vim.keymap.set("n", "<leader>lr", ':LspRestart<cr>', { desc = '[L]sp [r]estart'})
+
+
 --  This function gets run when an LSP connects to a particular buffer.
 local on_attach = function(_, bufnr)
   -- Function that lets us more easily define mappings specific
