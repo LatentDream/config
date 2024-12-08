@@ -11,6 +11,8 @@ alias st='git status'
 alias startgit='cd `git rev-parse --show-toplevel` && git checkout main && git pull'
 alias cg='cd `git rev-parse --show-toplevel`'
 alias adog='git log --all --decorate --oneline --graph'
+# Tmux
+alias t='tmux'
 # Software
 alias v='nvim'
 alias y='yazi'
