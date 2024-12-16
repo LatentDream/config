@@ -1,6 +1,5 @@
 return {
     "folke/neodev.nvim",
-    "folke/which-key.nvim",
     'xiyaowong/transparent.nvim',
 
     -- "gc" to comment visual regions/lines
@@ -37,6 +36,16 @@ return {
                 end,
             },
         },
+    },
+
+
+    {
+        "ibhagwan/fzf-lua",
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+        config = function()
+            -- calling `setup` is optional for customization
+            require("fzf-lua").setup({})
+        end
     },
 
     {

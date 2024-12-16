@@ -27,6 +27,15 @@ local on_attach = function(_, bufnr)
   nmap('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
   nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
 
+  -- nmap('gd', require('fzf-lua').lsp_definitions, '[G]oto [D]efinition')
+  -- nmap('gr', require('fzf-lua').lsp_references, '[G]oto [R]eferences')
+  -- nmap('gI', require('fzf-lua').lsp_implementations, '[G]oto [I]mplementation')
+  -- nmap('<leader>D', require('fzf-lua').lsp_typedefs, 'Type [D]efinition')
+  -- nmap('<leader>ds', require('fzf-lua').lsp_document_symbols, '[D]ocument [S]ymbols')
+  -- nmap('<leader>ws', require('fzf-lua').lsp_workspace_symbols, '[W]orkspace [S]ymbols')
+  -- nmap('<leader>ca', require('fzf-lua').lsp_code_actions, '[C]ode [A]ction')
+
+
   -- See `:help K` for why this keymap
   nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
   nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
