@@ -15,16 +15,16 @@ return {
         {
           "<leader>ge",
           function()
-            require("neo-tree.command").execute({ source = "git_status", toggle = true })
+            require("neo-tree.command").execute({ source = "git_status", toggle = true, position = "float" })
           end,
-          desc = "Git explorer",
+          desc = "Git explorer (float)",
         },
         {
           "<leader>be",
           function()
-            require("neo-tree.command").execute({ source = "buffers", toggle = true })
+            require("neo-tree.command").execute({ source = "buffers", toggle = true, position = "float" })
           end,
-          desc = "Buffer explorer",
+          desc = "Buffer explorer (float)",
         },
       },
       deactivate = function()

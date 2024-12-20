@@ -24,6 +24,7 @@ return {
         ---@type fun(cmd:string, opts:table)|nil
         pick = nil,
         keys = {
+          { icon = { "󰙅", hl = "DashboardIcon" }, key = "e", desc = " Explorer", action = ":wincmd o | Neotree show reveal=true focus position=current" },
           { icon = { "󰈞", hl = "DashboardIcon" }, key = "f", desc = " Find File", action = ":lua Snacks.dashboard.pick('files')" },
           { icon = { "󰊄", hl = "DashboardIcon" }, key = "g", desc = " Find Text", action = ":lua Snacks.dashboard.pick('live_grep')" },
           { icon = { "󱋢", hl = "DashboardIcon" }, key = "r", desc = " Recent Files", action = ":lua Snacks.dashboard.pick('oldfiles')" },
