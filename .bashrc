@@ -60,3 +60,5 @@ export EDITOR="/usr/bin/vim"
 # SSH Keys ---------------------
 eval $(ssh-agent); ssh-add ~/.ssh/github
 
+# User tools directory
+export PATH="$HOME/tools/:$PATH"
