@@ -7,6 +7,9 @@ vim.api.nvim_set_keymap('n', '<C-Down>', ':resize -2<CR>', { noremap = true, sil
 vim.api.nvim_set_keymap('n', '<C-Left>', ':vertical resize -2<CR>', { noremap = true, silent = true, desc = 'Decrease window width' })
 vim.api.nvim_set_keymap('n', '<C-Right>', ':vertical resize +2<CR>', { noremap = true, silent = true, desc = 'Increase window width' })
 
+
+vim.api.nvim_set_keymap('n', '<leader>th', ':set invhlsearch hlsearch?<CR>', { noremap = true, silent = true, desc = '[T]oggle [H]ighlight Search' })
+
 -- Custom insert
 function insertArrow()
     vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("i →", true, true, true), 'n', true)
