@@ -71,13 +71,13 @@ fzf_tmux_dirs() {
         
         if [[ -z "$TMUX" ]]; then
             # Create new session with editor window
-            tmux new-session -s "$session_name" -c "$selected_dir" -n Editor "nvim .; $SHELL" \; \
+            tmux new-session -s "$session_name" -c "$selected_dir" -n Editor "nvim; $SHELL" \; \
                 new-window -n Terminal \; \
                 select-window -t Editor
         else
             # If session doesn't exist, create it
             if ! tmux has-session -t "$session_name" 2>/dev/null; then
-                tmux new-session -d -s "$session_name" -c "$selected_dir" -n Editor "nvim .; $SHELL" \; \
+                tmux new-session -d -s "$session_name" -c "$selected_dir" -n Editor "nvim; $SHELL" \; \
                     new-window -n Terminal \; \
                     select-window -t Editor
             fi
