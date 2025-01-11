@@ -13,3 +13,5 @@ pypoetry
 configstore
 lazydocker
 systemd
+*credentials.json
+*.key
