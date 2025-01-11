@@ -25,7 +25,6 @@ local harpoon = require("harpoon")
 -- Your existing keybindings
 vim.keymap.set("n", "<leader>j", mark.add_file, { desc = '[H]arpoon [A]add file'})
 vim.keymap.set("n", "<leader>k", ui.toggle_quick_menu, { desc = '[H]arpoon Explorer'})
-vim.keymap.set('n', '<leader><leader>', ui.toggle_quick_menu, { desc = '[H]arpoon Explorer'})
 vim.keymap.set("n", "<leader>hn", function() ui.nav_file(1) end, { desc = '[H]arpoon 1'})
 vim.keymap.set("n", "<leader>hm", function() ui.nav_file(2) end, { desc = '[H]arpoon 2'})
 vim.keymap.set("n", "<leader>h,", function() ui.nav_file(3) end, { desc = '[H]arpoon 3'})
