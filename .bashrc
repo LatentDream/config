@@ -57,8 +57,33 @@ function yy() {
 export EDITOR="/usr/bin/vim" 
 
 
-# SSH Keys ---------------------
+# SSH Keys ----------------------
 eval $(ssh-agent); ssh-add ~/.ssh/github
 
-# User tools directory
+# User tools directory ----------
 export PATH="$HOME/tools/:$PATH"
+
+# Ctrl + f to find a folder + start session -------
+fzf_tmux_dirs() {
+    local selected_dir=$(find ~/repo ~/tmp ~/Documents/repo -maxdepth 1 -type d 2>/dev/null | fzf)
+    if [[ -n "$selected_dir" ]]; then
+        local session_name=$(basename "$selected_dir" | tr . _)
+        
+        if [[ -z "$TMUX" ]]; then
+            # Create new session with editor window
+            tmux new-session -s "$session_name" -c "$selected_dir" -n Editor "nvim .; $SHELL" \; \
+                new-window -n Terminal \; \
+                select-window -t Editor
+        else
+            # If session doesn't exist, create it
+            if ! tmux has-session -t "$session_name" 2>/dev/null; then
+                tmux new-session -d -s "$session_name" -c "$selected_dir" -n Editor "nvim .; $SHELL" \; \
+                    new-window -n Terminal \; \
+                    select-window -t Editor
+            fi
+            tmux switch-client -t "$session_name"
+        fi
+    fi
+}
+
+bind -x '"\C-f":"fzf_tmux_dirs"'
