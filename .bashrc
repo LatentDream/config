@@ -65,7 +65,7 @@ export PATH="$HOME/tools/:$PATH"
 
 # Ctrl + f to find a folder + start session -------
 fzf_tmux_dirs() {
-    local selected_dir=$(find ~/repo ~/tmp ~/Documents/repo -maxdepth 1 -type d 2>/dev/null | fzf)
+    local selected_dir=$(find ~/repo ~/tmp ~/Documents/repo ~/repo/tmp -maxdepth 1 -type d 2>/dev/null | fzf)
     if [[ -n "$selected_dir" ]]; then
         local session_name=$(basename "$selected_dir" | tr . _)
         
