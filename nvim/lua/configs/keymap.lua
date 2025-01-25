@@ -21,6 +21,19 @@ end
 
 vim.api.nvim_set_keymap('n', '<leader>ia', ':lua insertArrow()<CR>', { noremap = true, silent = true })
 
+-- Function to insert error handling
+vim.keymap.set('n', '<leader>ie', function()
+    local pos = vim.api.nvim_win_get_cursor(0)
+    local line = pos[1] - 1
+    vim.api.nvim_buf_set_lines(0, line, line, false, {
+        "if err != nil {",
+        "\t",
+        "}"
+    })
+    -- Move cursor to the indented line
+    vim.api.nvim_win_set_cursor(0, { line + 2, 1 })
+end)
+
 -- Some shortcuts
 vim.api.nvim_set_keymap('n', '<C-s>', ':w', { noremap = true, silent = true, desc = 'Save File' })
 vim.api.nvim_set_keymap('n', '<C-S>', ':aw', { noremap = true, silent = true, desc = 'Save all files' })
