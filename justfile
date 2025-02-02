@@ -18,6 +18,7 @@ install-system-packages-ubuntu:
     sudo apt install -y pkg-config
     sudo apt install -y libfontconfig1-dev
     sudo apt install -y libxcb1-dev libxcb-render0-dev libxcb-shape0-dev libxcb-xfixes0-dev
+    sudo apt install -y age
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
     ~/.fzf/install --all
 
@@ -83,7 +84,7 @@ install-go-mac:
 
 # Install system packages (macOS)
 install-system-packages-mac:
-    brew install fzf unzip gcc
+    brew install fzf unzip gcc age
 
 # Install Lazy (lazygit and lazydocker)
 install-lazy:
@@ -130,9 +131,15 @@ install-node-wsl:
     nvm ls
     node --version
 
+# Install conda
 install-conda:
     wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
     bash ./Miniconda3-latest-Linux-x86_64.sh
+
+# Decrypt and install encrypted config
+install-config:
+    echo "Decrypting SSH Config"
+    age -d ./config/ssh-config.enc > ~/.ssh/config
 
 # Install Glow (optional)
 install-glow:

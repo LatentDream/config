@@ -52,7 +52,7 @@
 
 2. Clone this repository:
    ```bash
-   git clone https://github.com/LatentDream/config ~/.config
+   git clone git@github.com:LatentDream/config.git ~/.config
    ```
 
 3. Navigate to the cloned directory:
