@@ -57,9 +57,6 @@ function yy() {
 export EDITOR="/usr/bin/vim" 
 
 
-# SSH Keys ----------------------
-eval $(ssh-agent); ssh-add ~/.ssh/github
-
 # User tools directory ----------
 export PATH="$HOME/tools/:$PATH"
 
@@ -87,3 +84,25 @@ fzf_tmux_dirs() {
 }
 
 bind -x '"\C-f":"fzf_tmux_dirs"'
+
+# # Start SSH agent function
+# start_agent() {
+#     echo "Initializing new SSH agent..."
+#     ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
+#     chmod 600 "${SSH_ENV}"
+#     . "${SSH_ENV}" > /dev/null
+#     ssh-add ~/.ssh/github
+# }
+#
+# # Set environment file location
+# SSH_ENV="$HOME/.ssh/agent-environment"
+#
+# # Source SSH settings if they exist
+# if [ -f "${SSH_ENV}" ]; then
+#     . "${SSH_ENV}" > /dev/null
+#     ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
+#         start_agent;
+#     }
+# else
+#     start_agent;
+# fi
