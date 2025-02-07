@@ -62,7 +62,23 @@ export PATH="$HOME/tools/:$PATH"
 
 # Ctrl + f to find a folder + start session -------
 fzf_tmux_dirs() {
-    local selected_dir=$(find ~/repo ~/tmp ~/Documents/repo ~/repo/tmp -maxdepth 1 -type d 2>/dev/null | fzf)
+    # Array of directories to search
+    local search_dirs=("$@")
+    
+    # If no directories provided, set some defaults
+    if [[ ${#search_dirs[@]} -eq 0 ]]; then
+        search_dirs=(
+            "$HOME/repo" 
+            "$HOME/tmp" 
+            "$HOME/Documents/repo" 
+            "$HOME/repo/tmp"
+            "$HOME/repo/scripts.git/"
+        )
+    fi
+    
+    # Find directories with fzf
+    local selected_dir=$(find "${search_dirs[@]}" -maxdepth 1 -type d 2>/dev/null | fzf)
+    
     if [[ -n "$selected_dir" ]]; then
         local session_name=$(basename "$selected_dir" | tr . _)
         
@@ -84,25 +100,3 @@ fzf_tmux_dirs() {
 }
 
 bind -x '"\C-f":"fzf_tmux_dirs"'
-
-# # Start SSH agent function
-# start_agent() {
-#     echo "Initializing new SSH agent..."
-#     ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
-#     chmod 600 "${SSH_ENV}"
-#     . "${SSH_ENV}" > /dev/null
-#     ssh-add ~/.ssh/github
-# }
-#
-# # Set environment file location
-# SSH_ENV="$HOME/.ssh/agent-environment"
-#
-# # Source SSH settings if they exist
-# if [ -f "${SSH_ENV}" ]; then
-#     . "${SSH_ENV}" > /dev/null
-#     ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
-#         start_agent;
-#     }
-# else
-#     start_agent;
-# fi
