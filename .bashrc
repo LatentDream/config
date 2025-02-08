@@ -23,6 +23,13 @@ alias ls='lsd -lgX --group-dirs first'
 alias ll='ls -alF'
 alias la='ls -A'
 eval "$(zoxide init bash)"
+# kubectl
+alias kc='kubectl'
+alias kcn='kubectl get nodes'
+alias kcp='kubectl get pods'
+alias kcd='kubectl describe'
+alias kcg='kubectl get'
+alias kca='kubectl apply -f'
 # -------------------------------
 
 
