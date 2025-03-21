@@ -68,6 +68,7 @@ install-cargo-utils:
     cargo install yazi-fm yazi-cli --locked
     cargo install lsd --locked
     cargo install git-delta
+    cargo install just-lsp
 #    cargo install silicon
 
 # Install Go

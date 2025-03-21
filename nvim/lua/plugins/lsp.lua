@@ -45,5 +45,9 @@ return {
   },
   {
     "onsails/lspkind.nvim"
+  },
+  {
+    "NoahTheDuke/vim-just",
+    ft = { "just" },
   }
 }

@@ -133,6 +133,25 @@ mason_lspconfig.setup_handlers {
   end,
 }
 
+local lsp = require('lspconfig')
+local configs = require('lspconfig.configs')
+if not configs.just_lsp then
+  configs.just_lsp = {
+    default_config = {
+      cmd = { '/home/dream/.cargo/bin/just-lsp' },
+      filetypes = { 'just' },
+      root_dir = function(fname)
+        return lsp.util.find_git_ancestor(fname)
+      end,
+      settings = {},
+    },
+  }
+end
+lsp.just_lsp.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+})
+
 -- require 'lspconfig'.pylsp.setup {
 --   settings = {
 --     pylsp = {
