@@ -36,4 +36,4 @@ require("aerial").setup({
   end,
 })
 -- You probably also want to set a keymap to toggle aerial
-vim.keymap.set("n", "<leader>n", "<cmd>AerialToggle!<CR>", { desc = 'Open in-file [n]avigation' })
+vim.keymap.set("n", "<leader>n", "<cmd>AerialToggle!<CR>", { desc = 'Open in-file navigation' })

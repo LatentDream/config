@@ -12,7 +12,7 @@ vim.api.nvim_set_keymap('n', '<C-Right>', ':vertical resize +2<CR>',
 
 
 vim.api.nvim_set_keymap('n', '<leader>th', ':set invhlsearch hlsearch?<CR>',
-    { noremap = true, silent = true, desc = '[T]oggle [H]ighlight Search' })
+    { noremap = true, silent = true, desc = 'Toggle Highlight Search' })
 
 -- Custom insert
 function insertArrow()
@@ -40,7 +40,7 @@ vim.api.nvim_set_keymap('n', '<C-S>', ':aw', { noremap = true, silent = true, de
 
 -- small c conveniance gh to go to header
 vim.api.nvim_set_keymap('n', 'gh', ':ClangdSwitchSourceHeader<CR>',
-    { noremap = true, silent = true, desc = '[G]o to [h]eader or source' })
+    { noremap = true, silent = true, desc = 'Go to header or source' })
 
 -- Normal esc in terminal mode
 vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]])
@@ -52,5 +52,5 @@ vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]], { desc = 'Exit terminal and close b
 vim.keymap.set('n', '<leader>tt', ':bel term<CR>i', {
     noremap = true,
     silent = true,
-    desc = '[T]oggle build-in [T]erminal'
+    desc = 'Toggle build-in Terminal'
 })

@@ -5,13 +5,12 @@ return {
       cmd = "Neotree",
       keys = {
         {
-          "<leader>fe",
+          "<leader>e",
           function()
             require("neo-tree.command").execute({ toggle = true, dir = vim.loop.cwd() })
           end,
           desc = "Explorer NeoTree (cwd)",
         },
-        { "<leader>e", "<leader>fe", desc = "Explorer NeoTree (cwd)", remap = true },
         {
           "<leader>ge",
           function()

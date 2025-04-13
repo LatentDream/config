@@ -1,9 +1,9 @@
 -- [[ Configure LSP ]]
 
 -- Some utilities
-vim.keymap.set("n", "<leader>ls", ':LspStart<cr>', { desc = '[L]sp [s]tart'})
-vim.keymap.set("n", "<leader>lp", ':LspStop<cr>', { desc = '[L]sp [p]pause'})
-vim.keymap.set("n", "<leader>lr", ':LspRestart<cr>', { desc = '[L]sp [r]estart'})
+vim.keymap.set("n", "<leader>ls", ':LspStart<cr>', { desc = 'Lsp start' })
+vim.keymap.set("n", "<leader>lp", ':LspStop<cr>', { desc = 'Lsp ppause' })
+vim.keymap.set("n", "<leader>lr", ':LspRestart<cr>', { desc = 'Lsp restart' })
 
 
 --  This function gets run when an LSP connects to a particular buffer.
@@ -17,68 +17,71 @@ local on_attach = function(_, bufnr)
     vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
   end
 
-  nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
-  nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
+  nmap('<leader>rn', vim.lsp.buf.rename, 'Rename')
+  nmap('<leader>ca', vim.lsp.buf.code_action, 'Code Action')
 
-  nmap('gd', require('fzf-lua').lsp_definitions, '[G]oto [D]efinition')
-  nmap('gr', require('fzf-lua').lsp_references, '[G]oto [R]eferences')
-  nmap('gI', require('fzf-lua').lsp_implementations, '[G]oto [I]mplementation')
-  nmap('<leader>D', require('fzf-lua').lsp_typedefs, 'Type [D]efinition')
-  nmap('<leader>ds', require('fzf-lua').lsp_document_symbols, '[D]ocument [S]ymbols')
-  nmap('<leader>ws', require('fzf-lua').lsp_workspace_symbols, '[W]orkspace [S]ymbols')
-  nmap('<leader>ca', require('fzf-lua').lsp_code_actions, '[C]ode [A]ction')
+  nmap('gd', require('fzf-lua').lsp_definitions, 'Goto Definition')
+  nmap('gr', require('fzf-lua').lsp_references, 'Goto References')
+  nmap('gI', require('fzf-lua').lsp_implementations, 'Goto Implementation')
+  nmap('<leader>D', require('fzf-lua').lsp_typedefs, 'Type Definition')
+  nmap('<leader>ds', require('fzf-lua').lsp_document_symbols, 'Document Symbols')
+  nmap('<leader>ws', require('fzf-lua').lsp_workspace_symbols, 'Workspace Symbols')
+  nmap('<leader>ca', require('fzf-lua').lsp_code_actions, 'Code Action')
   -- Bind gt to Telescope LSP type definitions
-  nmap('gt', require('fzf-lua').lsp_typedefs, '[G]oto [T]ype Def')
+  nmap('gt', require('fzf-lua').lsp_typedefs, 'Goto Type Def')
 
   -- See `:help K` for why this keymap
   nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
   nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
 
   -- Lesser used LSP functionality
-  nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
-  nmap('<leader>wa', vim.lsp.buf.add_workspace_folder, '[W]orkspace [A]dd Folder')
-  nmap('<leader>wr', vim.lsp.buf.remove_workspace_folder, '[W]orkspace [R]emove Folder')
+  nmap('gD', vim.lsp.buf.declaration, 'Goto Declaration')
+  nmap('<leader>wa', vim.lsp.buf.add_workspace_folder, 'Workspace Add Folder')
+  nmap('<leader>wr', vim.lsp.buf.remove_workspace_folder, 'Workspace Remove Folder')
 
   nmap('<leader>wl', function()
     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-  end, '[W]orkspace [L]ist Folders')
-  
+  end, 'Workspace List Folders')
+
   -- Create a command `:Format` local to the LSP buffer
   vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
     vim.lsp.buf.format()
   end, { desc = 'Format current buffer with LSP' })
 end
 
-vim.api.nvim_set_keymap('n', '<leader>ff', ':Format<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>ff', ':Format<CR>', { noremap = true, silent = true, desc = "Format" })
 
 
 -- document existing key chains
 local wk = require("which-key")
 wk.add({
-  { "<leader>b",  group = "[B]uffer" },
+  { "<leader>b", group = "Buffer" },
   { "<leader>b_", hidden = true },
-  { "<leader>c",  group = "[C]ode" },
+  { "<leader>c", group = "Code" },
   { "<leader>c_", hidden = true },
-  { "<leader>d",  group = "[D]ocument" },
+  { "<leader>d", group = "Document" },
   { "<leader>d_", hidden = true },
-  { "<leader>f",  group = "[F]ile" },
   { "<leader>f_", hidden = true },
-  { "<leader>g",  group = "[G]it" },
+  { "<leader>g", group = "Git" },
   { "<leader>g_", hidden = true },
-  { "<leader>i",  group = "[I]nsert" },
+  { "<leader>i", group = "Insert" },
   { "<leader>i_", hidden = true },
-  { "<leader>r",  group = "[R]ename" },
+  { "<leader>r", group = "Rename" },
   { "<leader>r_", hidden = true },
-  { "<leader>s",  group = "[S]earch" },
+  { "<leader>s", group = "Search" },
   { "<leader>s_", hidden = true },
-  { "<leader>t",  group = "[T]oggle" },
+  { "<leader>t", group = "Toggle" },
   { "<leader>t_", hidden = true },
-  { "<leader>w",  group = "[W]orkspace" },
+  { "<leader>w", group = "Workspace" },
   { "<leader>w_", hidden = true },
-  { "<leader>x",  group = "[X]Error" },
+  { "<leader>x", group = "Error" },
   { "<leader>x_", hidden = true },
   { "<leader>", group = "VISUAL <leader>", mode = "v" },
+  { "<leader>k", group = "Harpoon Explorer", icon = "󰛢" },
+  { "<leader>", group = "Leader", icon = "󰘳" },
+  { "<leader>g", group = "Git", icon = "󰊢" },
 })
+
 
 -- mason-lspconfig requires that these setup functions are called in this order
 -- before setting up the servers.

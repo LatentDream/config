@@ -105,8 +105,6 @@ vim.api.nvim_set_keymap('n', '<leader>ia', ':lua insertArrow()<CR>', { noremap =
 -- Some shortcuts
 vim.api.nvim_set_keymap('n', '<C-s>', ':w<CR>', { noremap = true, silent = true, desc = 'Save File' })
 vim.api.nvim_set_keymap('n', '<C-S>', ':aw<CR>', { noremap = true, silent = true, desc = 'Save all files' })
-vim.api.nvim_set_keymap('n', '<leader>p', ':put! =@0<CR>', { noremap = true, silent = true, desc = 'Paste' })
-vim.api.nvim_set_keymap('v', '<leader>p', ':put! =@0<CR>', { noremap = true, silent = true, desc = 'Paste' })
 
 -- Remap the :make -> justfile
 vim.o.makeprg = 'just'
@@ -118,3 +116,4 @@ vim.keymap.set('n', '<leader>jj', ':!just<CR>', { noremap = true, silent = true,
 vim.keymap.set('n', '<leader>jl', ':!just --list<CR>', { noremap = true, silent = true, desc = 'Justfile list' })
 vim.keymap.set('n', '<leader>jb', ':!just build<CR>', { noremap = true, silent = true, desc = 'justfile build' })
 vim.keymap.set('n', '<leader>m', ':make build<CR>', { noremap = true, silent = true, desc = 'make build' })
+

@@ -49,19 +49,12 @@ local function live_grep_git_root()
 end
 
 vim.api.nvim_create_user_command('LiveGrepGitRoot', live_grep_git_root, {})
-vim.keymap.set('n', '<leader>sG', ':LiveGrepGitRoot<cr>', { desc = '[S]earch by [G]rep on Git Root' })
+vim.keymap.set('n', '<leader>sG', ':LiveGrepGitRoot<cr>', { desc = 'Search by Grep on Git Root' })
 
 -- See `:help telescope.builtin`
 vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
-vim.keymap.set('n', '<leader>bb', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
-vim.keymap.set('n', '<leader><leader>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
-vim.keymap.set('n', '<leader>/', function()
-  -- You can pass additional configuration to telescope to change theme, layout, etc.
-  require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
-    winblend = 10,
-    previewer = false,
-  })
-end, { desc = '[/] Fuzzily search in current buffer' })
+vim.keymap.set('n', '<leader>bb', require('telescope.builtin').buffers, { desc = 'Find existing buffers' })
+vim.keymap.set('n', '<leader><leader>', require('telescope.builtin').buffers, { desc = 'Find existing buffers' })
 
 
 local function telescope_live_grep_open_files()
@@ -71,17 +64,19 @@ local function telescope_live_grep_open_files()
   }
 end
 
-vim.keymap.set('n', '<leader>s/', telescope_live_grep_open_files, { desc = '[S]earch [/] in Open Files' })
-vim.keymap.set('n', '<leader>sd', require('fzf-lua').diagnostics_document, { desc = '[S]earch [D]iagnostics' })
-vim.keymap.set('n', '<leader>ss', require('fzf-lua').builtin, { desc = '[S]earch [S]elector' })
-vim.keymap.set('n', '<leader>sg', require('fzf-lua').grep, { desc = '[S]earch by [G]rep' })
-vim.keymap.set('n', '<leader>sw', require('fzf-lua').grep_cword, { desc = '[S]earch current [W]ord' })
-vim.keymap.set('n', '<leader>sr', require('fzf-lua').resume, { desc = '[S]earch [R]esume' })
-vim.keymap.set('n', '<leader>sf', require('fzf-lua').files, { desc = '[S]earch [F]iles' })
-vim.keymap.set('n', '<leader>sq', require('fzf-lua').quickfix, { desc = '[S]earch [Q]uickfix' })
-vim.keymap.set('n', '<leader>st', require('fzf-lua').tabs, { desc = '[S]earch [T]abs' })
-vim.keymap.set('n', '<leader>sF', require('fzf-lua').git_files, { desc = '[S]earch by [G]rep on Git Root' })
-vim.keymap.set('n', '<leader>sh', require('fzf-lua').helptags, { desc = '[S]earch [H]elp' })
+vim.keymap.set('n', '<leader>/', telescope_live_grep_open_files, { desc = 'Grep in Open Files' })
+vim.keymap.set('n', '<leader>sd', require('fzf-lua').diagnostics_document, { desc = 'Search Diagnostics' })
+vim.keymap.set('n', '<leader>ss', require('fzf-lua').builtin, { desc = 'Search Selector' })
+vim.keymap.set('n', '<leader>sg', require('fzf-lua').grep, { desc = 'Search by Grep' })
+vim.keymap.set('n', '<leader>g', require('fzf-lua').grep, { desc = 'Search by Grep' })
+vim.keymap.set('n', '<leader>sw', require('fzf-lua').grep_cword, { desc = 'Search current Word' })
+vim.keymap.set('n', '<leader>sr', require('fzf-lua').resume, { desc = 'Search Resume' })
+vim.keymap.set('n', '<leader>sf', require('fzf-lua').files, { desc = 'Search Files' })
+vim.keymap.set('n', '<leader>f', require('fzf-lua').files, { desc = 'Search Files' })
+vim.keymap.set('n', '<leader>sq', require('fzf-lua').quickfix, { desc = 'Search Quickfix' })
+vim.keymap.set('n', '<leader>st', require('fzf-lua').tabs, { desc = 'Search Tabs' })
+vim.keymap.set('n', '<leader>sF', require('fzf-lua').git_files, { desc = 'Search by Grep on Git Root' })
+vim.keymap.set('n', '<leader>sh', require('fzf-lua').helptags, { desc = 'Search Help' })
 
 -- Harpoon 2 is buggy on Windows | Uncomment this to use Harpoon 2
 -- -- [Harpoon] Add custom telescope commands
