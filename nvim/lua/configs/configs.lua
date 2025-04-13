@@ -107,3 +107,14 @@ vim.api.nvim_set_keymap('n', '<C-s>', ':w<CR>', { noremap = true, silent = true,
 vim.api.nvim_set_keymap('n', '<C-S>', ':aw<CR>', { noremap = true, silent = true, desc = 'Save all files' })
 vim.api.nvim_set_keymap('n', '<leader>p', ':put! =@0<CR>', { noremap = true, silent = true, desc = 'Paste' })
 vim.api.nvim_set_keymap('v', '<leader>p', ':put! =@0<CR>', { noremap = true, silent = true, desc = 'Paste' })
+
+-- Remap the :make -> justfile
+vim.o.makeprg = 'just'
+vim.api.nvim_create_user_command('Just', function(opts)
+  vim.cmd('make ' .. opts.args)
+end, { nargs = '*' })
+
+vim.keymap.set('n', '<leader>jj', ':!just<CR>', { noremap = true, silent = true, desc = 'justfile' })
+vim.keymap.set('n', '<leader>jl', ':!just --list<CR>', { noremap = true, silent = true, desc = 'Justfile list' })
+vim.keymap.set('n', '<leader>jb', ':!just build<CR>', { noremap = true, silent = true, desc = 'justfile build' })
+vim.keymap.set('n', '<leader>m', ':make build<CR>', { noremap = true, silent = true, desc = 'make build' })
