@@ -21,6 +21,10 @@ end
 
 vim.api.nvim_set_keymap('n', '<leader>ia', ':lua insertArrow()<CR>', { noremap = true, silent = true })
 
+-- Quick list
+vim.api.nvim_set_keymap('n', '<leader>c', ':copen<CR>',
+    { noremap = true, silent = true, desc = 'Open Quickfix' })
+
 -- Function to insert error handling
 vim.keymap.set('n', '<leader>ie', function()
     local pos = vim.api.nvim_win_get_cursor(0)
@@ -54,3 +58,5 @@ vim.keymap.set('n', '<leader>tt', ':bel term<CR>i', {
     silent = true,
     desc = 'Toggle build-in Terminal'
 })
+
+
