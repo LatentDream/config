@@ -16,3 +16,6 @@ systemd
 *credentials.json
 *.key
 tailscale
+Cursor
+mimeapps.list
+uv

@@ -36,9 +36,9 @@ eval "$(fzf --bash)"
 
 
 # Tmux session start
-alias tmux-new='~/.config/scripts/create_tmux_session.sh'
-alias tmux-new-conda='~/.config/scripts/create_tmux_session.sh conda-start'
-alias tmux-new-poetry='~/.config/scripts/create_tmux_session.sh poetry'
+alias tt='~/.config/scripts/create_tmux_session.sh'
+alias ttc='~/.config/scripts/create_tmux_session.sh conda-start'
+alias ttp='~/.config/scripts/create_tmux_session.sh poetry'
 
 
 # Conda
@@ -60,7 +60,6 @@ function yy() {
 # Default stuff -----------------
 export EDITOR="/usr/bin/vim" 
 
-
 # User tools directory ----------
 export PATH="$HOME/tools/:$PATH"
 
@@ -72,6 +71,7 @@ fzf_tmux_dirs() {
     # If no directories provided, set some defaults
     if [[ ${#search_dirs[@]} -eq 0 ]]; then
         search_dirs=(
+            "$HOME/"
             "$HOME/repo" 
             "$HOME/tmp" 
             "$HOME/Documents/repo" 
@@ -80,27 +80,29 @@ fzf_tmux_dirs() {
         )
     fi
     
-    # Find directories with fzf
-    local selected_dir=$(find "${search_dirs[@]}" -maxdepth 1 -type d 2>/dev/null | fzf)
+    # Find directories and create a clean display format
+    local selected_display=$(find "${search_dirs[@]}" -maxdepth 1 -type d 2>/dev/null | \
+        sed "s|^$HOME/|~/|" | \
+        fzf --height 60% --reverse --border \
+            --preview 'ls -la $(echo {} | sed "s|^~/|$HOME/|")' \
+            --preview-window 'right:50%:wrap')
     
-    if [[ -n "$selected_dir" ]]; then
+    if [[ -n "$selected_display" ]]; then
+        # Convert back to full path
+        local selected_dir="${selected_display/#\~/$HOME}"
         local session_name=$(basename "$selected_dir" | tr . _)
         
         if [[ -z "$TMUX" ]]; then
-            # Create new session with editor window
+            # Not in tmux - create new session with editor window
             tmux new-session -s "$session_name" -c "$selected_dir" -n Editor "nvim; $SHELL" \; \
                 new-window -n Terminal \; \
                 select-window -t Editor
         else
-            # If session doesn't exist, create it
-            if ! tmux has-session -t "$session_name" 2>/dev/null; then
-                tmux new-session -d -s "$session_name" -c "$selected_dir" -n Editor "nvim; $SHELL" \; \
-                    new-window -n Terminal \; \
-                    select-window -t Editor
-            fi
-            tmux switch-client -t "$session_name"
+            # In tmux - create new window in current session
+            tmux new-window -c "$selected_dir" -n "$(basename "$selected_dir")"
         fi
     fi
 }
 
-bind -x '"\C-f":"fzf_tmux_dirs"'
+bind -x '"\C-g":"fzf_tmux_dirs"'  # Ctrl+g
+bind -x '"\C-f":"zi"'             # Ctrl+f
