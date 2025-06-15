@@ -29,6 +29,7 @@ lspkind.init({
     Event = "",
     Operator = "󰆕",
     TypeParameter = "",
+    Supermaven = "",
   },
 })
 
@@ -83,6 +84,7 @@ cmp.setup {
     { name = 'luasnip' },
     { name = 'path' },
     { name = "crates" },
+    { name = "supermaven" },
   },
   formatting = {
     format = lspkind.cmp_format({
