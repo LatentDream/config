@@ -85,7 +85,7 @@ install-go-mac:
 
 # Install system packages (macOS)
 install-system-packages-mac:
-    brew install fzf unzip gcc age
+    brew install fzf unzip gcc age tmux luarocks
 
 # Install Lazy (lazygit and lazydocker)
 install-lazy:
