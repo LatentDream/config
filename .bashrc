@@ -32,6 +32,9 @@ alias kg='kubectl get'
 # Tmux session start
 alias tt='~/.config/scripts/create_tmux_session.sh'
 
+# k9s
+K9S_CONFIG_DIR=$HOME/.config/k9s/
+
 # Yazi sub-shell ----------------
 function yy() {
     local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
