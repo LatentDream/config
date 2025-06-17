@@ -135,3 +135,8 @@ elif [[ -n "$ZSH_VERSION" ]]; then
     bindkey '^g' fzf_tmux_dirs_widget  # Ctrl+g
     bindkey '^f' zi_widget              # Ctrl+f
 fi
+
+if [[ -n "$ZSH_VERSION" ]]; then
+    zstyle ':completion:*:*:make:*' tag-order 'targets'
+    autoload -U compinit && compinit
+fi
