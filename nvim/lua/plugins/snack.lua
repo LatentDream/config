@@ -32,7 +32,7 @@ return {
           { icon = { "󰊢", hl = "DashboardIcon" }, key = "b", desc = " Repo", padding = 1, action = function() Snacks.gitbrowse() end, },
         },
         header = {
-          "           Welcome back " .. (vim.env.USER:gsub("^%l", string.upper)),
+          "           Welcome back Latent",
         },
       },
       -- item field formatters
