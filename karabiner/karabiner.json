@@ -151,6 +151,51 @@
                                 },
                                 "to": [{ "shell_command": "open -a 'Calendar'" }],
                                 "type": "basic"
+                            },
+
+                            {
+                                "from": {
+                                    "key_code": "f1"
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "open -a 'zen'"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "f2"
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "open -a 'wezterm'"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "f3"
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "open -a 'slack'"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "f4"
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "open -a 'Calendar'"
+                                    }
+                                ],
+                                "type": "basic"
                             }
                         ]
                     }
@@ -171,6 +216,14 @@
                 {
                     "from": { "key_code": "f4" },
                     "to": [{ "key_code": "print_screen" }]
+                },
+                {
+                    "from": { "key_code": "f5" },
+                    "to": [{ "consumer_key_code": "display_brightness_decrement" }]
+                },
+                {
+                    "from": { "key_code": "f6" },
+                    "to": [{ "consumer_key_code": "display_brightness_increment" }]
                 }
             ],
             "name": "Default profile",
