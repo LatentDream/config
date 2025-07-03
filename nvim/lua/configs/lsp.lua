@@ -177,10 +177,11 @@ end
 
 local lsp = require('lspconfig')
 local configs = require('lspconfig.configs')
+local home = os.getenv('HOME')
 if not configs.just_lsp then
   configs.just_lsp = {
     default_config = {
-      cmd = { '/home/dream/.cargo/bin/just-lsp' },
+      cmd = { home .. '/.cargo/bin/just-lsp' },
       filetypes = { 'just' },
       root_dir = function(fname)
         return lsp.util.find_git_ancestor(fname)

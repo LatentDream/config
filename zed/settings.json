@@ -7,6 +7,7 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "icon_theme": "Colored Zed Icons Theme Dark",
   "telemetry": {
     "metrics": false,
     "diagnostics": false
@@ -16,7 +17,7 @@
   "buffer_font_size": 16,
   "theme": {
     "mode": "system",
-    "light": "One Light",
+    "light": "Gruvbox Dark",
     "dark": "One Dark"
   },
   "features": {

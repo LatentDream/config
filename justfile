@@ -28,7 +28,7 @@ install-nvim-ubuntu version="stable":
     set -euo pipefail
     mkdir -p ~/tools
     cd ~/tools
-    if [ "{{version}}" = "nightly" ]; then
+    if [ "{{ version }}" = "nightly" ]; then
         echo "Installing Neovim Nightly version..."
         DOWNLOAD_URL="https://github.com/neovim/neovim/releases/download/nightly/nvim-linux64.tar.gz"
     else
@@ -69,7 +69,6 @@ install-cargo-utils:
     cargo install lsd --locked
     cargo install git-delta
     cargo install just-lsp
-#    cargo install silicon
 
 # Install Go
 install-go:
@@ -82,6 +81,11 @@ install-go:
 # Install Go (macOS)
 install-go-mac:
     brew install go
+
+# Install dotnet (macOS)
+install-dotnet-mac:
+    brew install -cask dotnet-sdk
+    dotnet tool install dotnet-ef --global -a arm64
 
 # Install system packages (macOS)
 install-system-packages-mac:
