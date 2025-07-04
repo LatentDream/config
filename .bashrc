@@ -52,7 +52,7 @@ export EDITOR="/usr/bin/vim"
 # User tools directory ----------
 export PATH="$HOME/tools/:$PATH"
 
-# Only when source for Bash (allow this to be sourced from ./zshrc
+# Only when source for Bash (allow this to be sourced from ./zshrc)
 if [[ -n "$BASH_VERSION" ]]; then
     # Enable fzf and z / zi ---------
     eval "$(zoxide init bash)"
