@@ -22,3 +22,5 @@ NuGet
 gcloud
 stetic
 xbuild
+go
+.wrangler/*

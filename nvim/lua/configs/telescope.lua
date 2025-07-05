@@ -70,6 +70,7 @@ vim.keymap.set('n', '<leader>ss', require('fzf-lua').builtin, { desc = 'Search S
 vim.keymap.set('n', '<leader>sg', require('fzf-lua').grep, { desc = 'Search by Grep' })
 vim.keymap.set('n', '<C-g>', require('fzf-lua').grep, { desc = 'Search by Grep' })
 vim.keymap.set('n', '<leader>sw', require('fzf-lua').grep_cword, { desc = 'Search current Word' })
+vim.keymap.set('n', '<leader>w', require('fzf-lua').grep_cword, { desc = 'Search current Word' })
 vim.keymap.set('n', '<leader>sr', require('fzf-lua').resume, { desc = 'Search Resume' })
 vim.keymap.set('n', '<leader>sf', require('fzf-lua').files, { desc = 'Search Files' })
 vim.keymap.set('n', '<C-f>', require('fzf-lua').files, { desc = 'Search Files' })
