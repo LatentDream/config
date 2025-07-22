@@ -1,5 +1,3 @@
-// Zed settings
-//
 // For information on how to configure Zed, see the Zed
 // documentation: https://zed.dev/docs/configuring-zed
 //
@@ -12,21 +10,29 @@
     "metrics": false,
     "diagnostics": false
   },
+  "cursor_blink": false,
+  "relative_line_numbers": true,
   "vim_mode": true,
   "ui_font_size": 16,
   "buffer_font_size": 16,
   "theme": {
     "mode": "system",
-    "light": "Gruvbox Dark",
+    "light": "Gruber Darker",
     "dark": "One Dark"
   },
   "features": {
     // Which inline completion provider to use.
     "edit_prediction_provider": "none"
   },
-
   "agent": {
     "enabled": false,
-    "version": "2"
+  },
+  "title_bar": {
+    "show_branch_icon": true, // Show/hide branch icon beside branch switcher
+    "show_branch_name": true, // Show/hide branch name
+    "show_project_items": true, // Show/hide project host and name
+    "show_onboarding_banner": false, // Show/hide onboarding banners
+    "show_user_picture": true, // Show/hide user avatar
+    "show_sign_in": false // Show/hide sign-in button
   }
 }

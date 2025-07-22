@@ -1,5 +1,57 @@
+[column]
+    ui = auto
+
+[branch]
+    sort = -committerdate
+
+[tag]
+    sort = version:refname
+
+[init]
+    defaultBranch = main
+
+[diff]
+    algorithm = histogram
+    colorMoved = plain
+    mnemonicPrefix = true
+    renames = true
+
+[push]
+    default = simple
+    autoSetupRemote = true
+    followTags = true
+
+[fetch]
+    prune = true
+    pruneTags = true
+    all = true
+
+[help]
+    autocorrect = prompt
+
+[commit]
+    verbose = true
+
+[rerere]
+    enabled = true
+    autoupdate = true
+
+[rebase]
+    autoSquash = true
+    autoStash = true
+    updateRefs = true
+
+[merge]
+    conflictstyle = zdiff3 
+
+[pull]
+    rebase = true
+
 [core]
     pager = delta
+    fsmonitor = true
+    untrackedCache = true
+    excludesfile = ~/.gitignore
 
 [interactive]
     diffFilter = delta --color-only
@@ -7,12 +59,6 @@
 [delta]
     navigate = true
     features = decorations
-
-[merge]
-    conflictstyle = diff3
-
-[diff]
-    colorMoved = default
 
 [user]
     email = guillaume.thibault.98@proton.me

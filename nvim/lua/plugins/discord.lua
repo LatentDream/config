@@ -7,7 +7,7 @@ return {
       enabled = false
     },
     text = {
-      workspace = function(opts) return 'In ' .. opts.workspace end,
+      workspace = '',
       editing = 'Editing a file',
       viewing = 'Viewing a file',
     }

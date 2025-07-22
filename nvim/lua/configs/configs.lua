@@ -116,4 +116,14 @@ vim.keymap.set('n', '<leader>jj', ':!just<CR>', { noremap = true, silent = true,
 vim.keymap.set('n', '<leader>jl', ':!just --list<CR>', { noremap = true, silent = true, desc = 'Justfile list' })
 vim.keymap.set('n', '<leader>jb', ':!just build<CR>', { noremap = true, silent = true, desc = 'justfile build' })
 vim.keymap.set('n', '<leader>m', ':make build<CR>', { noremap = true, silent = true, desc = 'make build' })
+vim.keymap.set('n', '<leader>jo', function()
+  -- Try to find existing buffer first
+  local buf_exists = vim.fn.bufexists('justfile') == 1
 
+  if buf_exists then
+    vim.cmd('sbuffer justfile')
+  else
+    -- Open the file (will create buffer if file exists)
+    vim.cmd('split justfile')
+  end
+end, { noremap = true, silent = true, desc = 'open project justfile' })
