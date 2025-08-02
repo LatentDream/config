@@ -22,6 +22,22 @@
                                 },
                                 "to": [{ "shell_command": "open -a Ghostty" }],
                                 "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "down_arrow",
+                                    "modifiers": { "mandatory": ["left_command", "left_control"] }
+                                },
+                                "to": [{ "shell_command": "open -a Rider" }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "up_arrow",
+                                    "modifiers": { "mandatory": ["left_command", "left_control"] }
+                                },
+                                "to": [{ "shell_command": "open -a Slack" }],
+                                "type": "basic"
                             }
                         ]
                     },

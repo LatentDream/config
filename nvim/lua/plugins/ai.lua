@@ -74,5 +74,5 @@ if check_user() ~= "guillaume.thibault" then
         },
     }
 else
-    return {} -- Return empty table when user is guillaume.thibault
+    return {}
 end
