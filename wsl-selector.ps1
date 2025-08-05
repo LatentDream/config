@@ -13,9 +13,9 @@ function Draw-Menu {
     
     # Cool ASCII art title
     $title = @"
-    _,--._.-,
+    *,--.*.-,
    /\_r-,\_ )
-.-.) _;='_/ (.;
+.-.) *;='*/ (.;
  \ \'     \/S )
   L.'-. _.'|-'
  <_`-'\'_.'/
@@ -28,9 +28,8 @@ function Draw-Menu {
               `\\,
                 \|
 "@
-
     # Calculate vertical positioning
-    $options = @("Perso", "Work", "Host")
+    $options = @("  Ubuntu", " Git Bash", "Latent.host")
     $titleLines = ($title -split "`n").Count
     $totalContentHeight = $titleLines + 3 + $options.Count * 2  # Title + spacing + options
     $topPadding = [math]::Max(0, ($height - $totalContentHeight) / 2)
@@ -78,7 +77,7 @@ function Draw-Menu {
 # Main script
 $SelectedIndex = 0
 $running = $true
-$options = @("Perso", "Work", "Latent.host")
+$options = @("Ubuntu", "Git Bash", "Latent.host")
 
 while ($running) {
     Draw-Menu -SelectedIndex $SelectedIndex
@@ -96,9 +95,32 @@ while ($running) {
         13 { # Enter
             switch ($SelectedIndex) {
                 0 { wsl -d Ubuntu -- bash -c "cd ~ && clear && bash" }
-                1 { wsl -d Ubuntu-24.04 -- bash -c "cd ~ && clear && bash" }
+                1 { 
+                    # Try common Git Bash installation paths
+                    $gitBashPaths = @(
+                        "${env:ProgramFiles}\Git\bin\bash.exe",
+                        "${env:ProgramFiles(x86)}\Git\bin\bash.exe",
+                        "${env:LOCALAPPDATA}\Programs\Git\bin\bash.exe"
+                    )
+                    
+                    $gitBashPath = $null
+                    foreach ($path in $gitBashPaths) {
+                        if (Test-Path $path) {
+                            $gitBashPath = $path
+                            break
+                        }
+                    }
+                    
+                    if ($gitBashPath) {
+                        # Clear screen and start Git Bash in current terminal at home directory
+                        Clear-Host
+                        & $gitBashPath --login -i -c "cd ~ && exec bash"
+                    } else {
+                        Write-Host "Git Bash not found. Please ensure Git is installed." -ForegroundColor Red
+                        Start-Sleep -Seconds 2
+                    }
+                }
                 2 { wsl -d Ubuntu -- bash -c "cd ~ && clear && bash ./.config/scripts/ssh-latent-host.sh" }
-
             }
             $running = $false
         }
