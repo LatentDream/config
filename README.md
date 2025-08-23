@@ -38,7 +38,7 @@
 
 ## Notes
 ### Tmux
-For tmux, open a tmux session and press `prefix` + `I` (capital i) to install the plugins.
+For tmux, make sure you did `just install-tmux` for the plugings to work and open a tmux session and press `prefix` + `I` (capital i) to install the plugins.
 
 ### Windows - WSL Setup
 
