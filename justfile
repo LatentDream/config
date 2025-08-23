@@ -168,7 +168,7 @@ install-glow:
 install-rectangle:
     brew install --cask rectangle
 
-# Run all installation steps
+# Run all installation steps for Ubuntu
 install-all: install-rust install-system-packages-ubuntu install-cargo-utils install-nvim-ubuntu append-bashrc append-gitconfig install-go install-lazy install-glow install-tmux
 
 # Run all installation steps for macOS
