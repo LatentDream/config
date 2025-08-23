@@ -112,16 +112,7 @@ install-lazy:
 
 # Install Tmux package manager and config
 install-tmux:
-    cp ./.tmux.conf ~/.tmux.conf
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-
-# Auto source the `.config/.bashrc` file
-append-bashrc:
-    echo "source ~/.config/.bashrc" >> ~/.bashrc
-
-# Append .gitconfig content
-append-gitconfig:
-    cat ~/.config/.gitconfig >> ~/.gitconfig
 
 # Node installation for WSL2
 install-node-wsl:
@@ -136,40 +127,21 @@ install-node-wsl:
     nvm ls
     node --version
 
-# Install conda
-install-conda:
-    wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-    bash ./Miniconda3-latest-Linux-x86_64.sh
-
 # Decrypt and install encrypted config
 install-config:
     echo "Decrypting SSH Config"
     age -d ./config/ssh-config.enc > ~/.ssh/config
 
-# Install Glow (optional)
-install-glow:
-    #!/usr/bin/env bash
-    set -euo pipefail
-    mkdir -p ~/tools/go
-    export GOPATH=~/tools/go
-    export PATH=$PATH:$GOPATH/bin
-    go install github.com/charmbracelet/glow@latest
-    if ! grep -q 'export PATH="$HOME/tools/go/bin:$PATH"' ~/.bashrc; then
-        echo 'export PATH="$HOME/tools/go/bin:$PATH"' >> ~/.bashrc
-        echo "Added Glow to PATH in .bashrc"
-    else
-        echo "Glow path already in .bashrc"
-    fi
-    echo "Please run 'source ~/.bashrc' or start a new terminal session to use glow"
-    echo "NOTE: If you get an error claiming that glow cannot be found or is not defined,"
-    echo "you may need to manually add '~/tools/go/bin' to your \$PATH in your shell configuration file."
-
 # Install Rectangle (macOS only, optional)
 install-rectangle:
     brew install --cask rectangle
+    
+# Stow (auto detect platform)
+stow:
+    ./stow.sh stow-all
 
 # Run all installation steps for Ubuntu
-install-all: install-rust install-system-packages-ubuntu install-cargo-utils install-nvim-ubuntu append-bashrc append-gitconfig install-go install-lazy install-glow install-tmux
+install-all: install-rust install-system-packages-ubuntu install-cargo-utils install-nvim-ubuntu install-go install-lazy install-tmux
 
 # Run all installation steps for macOS
-install-all-mac: install-rust install-go-mac install-homebrew install-cargo-utils install-system-packages-mac install-lazy install-lazy install-tmux append-bashrc append-gitconfig install-rectangle
+install-all-mac: install-rust install-go-mac install-homebrew install-cargo-utils install-system-packages-mac install-lazy install-lazy install-tmux install-rectangle

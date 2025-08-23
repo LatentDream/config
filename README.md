@@ -23,90 +23,26 @@
   </p>
 </p> 
 
-- [Neovim](./nvim/)
-- [tmux](./.tmux.conf)
-- [Alacritty](./alacritty/)
-- [lsd](./lsd/)
-- [yazi](./yazi/)
-- [Some scripts](./scripts/)
-- [Some cool icons](./assets/)
+## For Arch
+1. config in [dotfiles-arch](https://github.com/LatentDream/dotfiles-arch)
+2. stow config file with `./stow.sh stow-all`
 
-## Quick Start
+## For MacOS
+1. Install Justfile `brew install just` and `just install-all-mac`
+2. Stow config file with `./stow.sh stow-all`
 
-1. Install Just:
-   ```bash
-   # Make sure the following are install:
-   # - Git
-   # - curl or wget
+## For Ubuntu
 
-   # On macOS
-   brew install just
+1. Install Justfile `cargo install just` and `just install-all`
+2. Stow config file with `./stow.sh stow-all`
 
-   # On Ubuntu/Debian
-   sudo apt-get update
-   sudo apt-get install just
+## Notes
+### Tmux
+For tmux, open a tmux session and press `prefix` + `I` (capital i) to install the plugins.
 
-   # Using cargo (Rust's package manager)
-   cargo install just
-   ```
+### Windows - WSL Setup
 
-2. Clone this repository:
-   ```bash
-   git clone git@github.com:LatentDream/config.git ~/.config
-   ```
-
-3. Navigate to the cloned directory:
-   ```bash
-   cd ~/.config
-   ```
-
-4. Run the installation:
-   ```bash
-   # For Linux (Debian/Ubuntu)
-   just install-all
-
-   # For macOS
-   just install-all-mac
-   ```
-
-5. Restart your terminal or source your `.bashrc`:
-   ```bash
-   source ~/.bashrc
-   ```
-
-6. For tmux, open a tmux session and press `prefix` + `I` (capital i) to install the plugins.
-
-## Detailed Installation Steps
-
-The `justfile` automates most of the installation process. Here's what it does:
-
-1. Clones this configuration repository
-2. Installs Rust
-3. Installs Go
-5. Installs system packages (fzf, unzip, clangd, gcc)
-4. Installs various Cargo utilities (ripgrep, zoxide, bat, just, yazi, silicon, lsd, git-delta)
-   - TODO: Fix silicon
-6. Installs Lazygit and Lazydocker
-7. Sets up Tmux plugin manager
-8. Appends necessary configurations to .bashrc and .gitconfig
-
-## Optional Installations
-
-The justfile includes recipes for some optional tools:
-
-- Glow: A terminal-based markdown reader
-  ```bash
-  just install-glow
-  ```
-
-- Rectangle (macOS only): A window manager
-  ```bash
-  just install-rectangle
-  ```
-
-## WSL Setup
-
-1. Move `./wsl-selector.ps1` to `~/` of your profile
+1. Move `./windows/wsl-selector.ps1` to `~/` of your profile
 2. Move `./alacritty/*` to `~/AppData/roaming/alacritty/*`
 3. Un-comment the lauch of the `wsl-selector.ps1` script
 
