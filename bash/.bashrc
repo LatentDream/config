@@ -2,16 +2,11 @@
 # (don't mess with these directly, just overwrite them here!)
 source ~/.local/share/omarchy/default/bash/rc
 
-# Add your own exports, aliases, and functions here.
-#
-# Make an alias for invoking commands you use constantly
-# alias p='python'
-#
 # Use VSCode instead of neovim as your default editor
 # export EDITOR="code"
-#
+
 # Set a custom prompt with the directory revealed (alternatively use https://starship.rs)
-# PS1="\W \[\e]0;\w\a\]$PS1"
+PS1="\W \[\e]0;\w\a\]$PS1"
 
 # My Personal Aliases ----------
 # Utils
@@ -59,7 +54,6 @@ function yy() {
     fi
     rm -f -- "$tmp"
 }
-
 
 # Default stuff -----------------
 export EDITOR="/usr/bin/vim"
@@ -113,5 +107,4 @@ fzf_tmux_dirs() {
     fi
 }
 bind -x '"\C-g":"fzf_tmux_dirs"'  # Ctrl+g
-bind -x '"\C-f":"zi"'             # Ctrl+f
 
