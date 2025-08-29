@@ -108,3 +108,6 @@ fzf_tmux_dirs() {
 }
 bind -x '"\C-g":"fzf_tmux_dirs"'  # Ctrl+g
 
+
+# opencode
+export PATH=/home/latent/.opencode/bin:$PATH
